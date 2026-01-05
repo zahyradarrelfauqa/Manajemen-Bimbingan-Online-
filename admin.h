@@ -929,19 +929,27 @@ void Admin::lihatDaftarPembayaran()
         return;
     }
 
-    cout << "ID\t\tNIK\t\t\tJenis\t\tJumlah\t\t\tTanggal\t\tStatus";
-    cout << endl;
+    cout << left 
+	     << setw(8) << "ID" 
+	     << setw(15) << "NIK" 
+	     << setw(20) << "Jenis" 
+	     << setw(15) << "Jumlah" 
+	     << setw(15) << "Tanggal" 
+	     << setw(12) << "Status" 
+	     << endl;
+	cout << string(85, '-') << endl;
 
     KeuanganNode* cur = headKeuangan;
     while (cur) 
     {
-        cout << cur->idTransaksi << "\t\t"
-             << cur->nik << "\t\t\t"
-             << cur->jenis << "\t\t"
-             << cur->jumlah << "\t\t\t"
-             << cur->tanggal << "\t\t"
-             << cur->status;
-        cout << endl;
+        cout << left
+         << setw(8) << cur->idTransaksi
+         << setw(15) << cur->nik
+         << setw(20) << cur->jenis
+         << setw(15) << cur->jumlah
+         << setw(15) << cur->tanggal
+         << setw(12) << cur->status;
+    cout << endl;
         cur = cur->next;
     }
 }
@@ -1261,16 +1269,21 @@ void Admin::lihatAbsensi()
         return;
     }
 
-    cout << "NIK\t\t\tTanggal\t\tStatus";
-    cout << endl;
+    cout << left 
+	     << setw(20) << "NIK" 
+	     << setw(25) << "Tanggal" 
+	     << setw(15) << "Status" 
+	     << endl;
+	cout << string(60, '-') << endl; // Garis pemisah
 
     AbsensiNode* cur = headAbsensi;
     while (cur) 
     {
-        cout << cur->nik << "\t\t\t"
-             << cur->tanggal << "\t\t"
-             << cur->status ;
-        cout << endl;
+        cout << left
+	         << setw(20) << cur->nik
+	         << setw(25) << cur->tanggal
+	         << setw(15) << cur->status;
+	    cout << endl;
         cur = cur->next;
     }
 }
@@ -1606,15 +1619,23 @@ void Admin::lihatSemuaNilai()
         return;
     }
 
-    cout << "NIK\t\t\tMapel\t\tNilai\tTanggal\n";
+    cout << left 
+	     << setw(15) << "NIK Siswa" 
+	     << setw(25) << "Mata Pelajaran" 
+	     << setw(10) << "Nilai" 
+	     << setw(15) << "Tanggal" 
+	     << endl;
+	cout << string(65, '-') << endl; // Garis pemisah
 
     NilaiNode* cur = headNilai;
     while (cur) 
     {
-        cout << cur->nik << "\t\t\t"
-             << cur->mapel << "\t\t"
-             << cur->nilai << "\t"
-             << cur->tanggal << "\n";
+        cout << left
+	         << setw(15) << cur->nik
+	         << setw(25) << cur->mapel
+	         << setw(10) << cur->nilai
+	         << setw(15) << cur->tanggal;
+	    cout << endl; 
         cur = cur->next;
     }
 }
@@ -1910,19 +1931,27 @@ void Admin::lihatSemuaJadwal()
     }
 
     JadwalNode* j = headJadwal;
-    cout << "ID\tHari\tJam\t\tMapel\t\tNIK Pengajar\t\t\tKelas";
-    cout << endl;
+    cout << left 
+	     << setw(6) << "ID" 
+	     << setw(10) << "Hari" 
+	     << setw(15) << "Jam" 
+	     << setw(20) << "Mata Pelajaran" 
+	     << setw(15) << "Pengajar" 
+	     << setw(8) << "Kelas" 
+	     << endl;
+	cout << string(74, '-') << endl;
     cout << "--------------------------------------------------------------------";
     cout << endl;
     while (j) 
     {
-        cout << j->idJadwal << "\t"
-             << j->hari << "\t"
-             << j->jam << "\t\t"
-             << j->mapel << "\t\t"
-             << j->pengajarNIK << "\t\t\t"
-             << j->kelas;
-        cout << endl;
+        cout << left
+         << setw(6) << j->idJadwal
+         << setw(10) << j->hari  
+         << setw(15) << j->jam
+         << setw(20) << j->mapel
+         << setw(15) << j->pengajarNIK
+         << setw(8) << j->kelas;
+    cout << endl;
         j = j->next;
     }
 }
