@@ -28,3 +28,4 @@
 3275012828280028|Ilham Fauzan|X IPS 1|Jl. Soekarno Hatta No. 55, Bandung|081234567048
 3275012929290029|Nadya Safira|XII IPA 3|Jl. Kopo No. 66, Bandung|081234567049
 3275013030300030|Fajar Maulana|XI IPS 2|Jl. Leuwipanjang No. 7, Bandung|081234567050
+3174031502070021|Muhammad Alif Rizki|XII IPA 3|Jl. Kebon Jeruk Raya No. 45, Jakarta|81236351286
