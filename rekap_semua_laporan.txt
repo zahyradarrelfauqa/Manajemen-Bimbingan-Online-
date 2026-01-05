@@ -1,0 +1,148 @@
+
+===== DATA SISWA =====
+3275011204050001 Andi Pratama X IPA 1 Jl. Melati No. 12, Bandung 81234567890
+3275011506090002 Siti Rahmawati X IPS 2 Jl. Kenanga No. 44, Bandung 81322994411
+3275012108030003 Budi Santoso XI IPA 3 Jl. Sukajadi No. 5, Bandung 82177886655
+3275010401070004 Rina Amelia XI IPS 1 Jl. Cendana No. 21, Cimahi 81299001122
+3275012303110005 Dwi Hartanto XII IPA 2 Jl. Pahlawan No. 78, Bandung 85733114499
+3275010608010006 Maya Putri XII IPS 4 Jl. Terusan Jakarta No. 9, Bandung 87822003344
+3275010912020007 Reza Firmansyah X IPA 2 Jl. Babakan No. 30, Bandung 81911558800
+3275011709050008 Intan Salsabila XI IPA 1 Jl. Taman Sari No. 14, Bandung 82244002211
+3275012512020009 Fikri Maulana X IPS 1 Jl. Pasirkaliki No. 27, Bandung 83899117733
+3275010202050010 Nabila Zahra XII IPS 3 Jl. Ahmad Yani No. 99, Bandung 85166775533
+3275011404060011 Aldi Saputra X IPA 3 Jl. Sukaraja No. 6, Bandung 81255667788
+3275011008080012 Putri Ayuningtyas XI IPS 2 Jl. Cikutra No. 41, Bandung 81366778899
+3275011909050013 Farhan Akbar XII IPA 1 Jl. Setiabudi No. 33, Bandung 82133445566
+3275012307040014 Zahra Aulia X IPS 3 Jl. Gegerkalong No. 19, Bandung 85711223344
+3275010811020015 Rifqi Hidayat XI IPA 2 Jl. Cipaganti No. 25, Bandung 87844556677
+3275011209060016 Salma Nurfadilah XII IPS 1 Jl. Margahayu No. 52, Bandung 81977889900
+3275012503050017 Yusuf Ramadhan X IPA 1 Jl. Buah Batu No. 88, Bandung 82211113333
+3275010410070018 Aisyah Putri XI IPS 3 Jl. Braga No. 7, Bandung 83822224444
+3275012204060019 Arif Kurniawan XII IPA 3 Jl. Dago Atas No. 15, Bandung 85144446666
+3275011708090020 Linda Marlina X IPS 2 Jl. Pasteur No. 28, Bandung 81388880000
+3275012121210021 Rama Wijaya XI IPA 2 Jl. Surapati No. 10, Bandung 81234567041
+3275012222220022 Nina Oktaviana X IPS 3 Jl. Diponegoro No. 18, Bandung 81234567042
+3275012323230023 Bagus Setiawan XII IPA 1 Jl. Asia Afrika No. 22, Bandung 81234567043
+3275012424240024 Citra Lestari XI IPS 1 Jl. Riau No. 31, Bandung 81234567044
+3275012525250025 Danu Prakoso X IPA 2 Jl. Gatot Subroto No. 9, Bandung 81234567045
+3275012626260026 Aulia Rahman XII IPS 2 Jl. Sudirman No. 40, Bandung 81234567046
+3275012727270027 Mega Puspitasari XI IPA 3 Jl. Karapitan No. 14, Bandung 81234567047
+3275012828280028 Ilham Fauzan X IPS 1 Jl. Soekarno Hatta No. 55, Bandung 81234567048
+3275012929290029 Nadya Safira XII IPA 3 Jl. Kopo No. 66, Bandung 81234567049
+3275013030300030 Fajar Maulana XI IPS 2 Jl. Leuwipanjang No. 7, Bandung 81234567050
+
+===== DATA PENGAJAR =====
+3210011504880001 Ahmad Fadillah Matematika SMA Senin & Kamis Jl. Cimahi No. 22, Bandung 81277881122
+3210010703910002 Lestari Wulandari Bahasa Inggris SMP Selasa & Jumat Jl. Pasundan No. 5, Bandung 81344006611
+3210012209800003 Rifqi Ramadhan Fisika SMA Rabu & Sabtu Jl. Karapitan No. 44, Bandung 82199005522
+3210010311800004 Dina Rosalia Biologi SMA Kamis & Sabtu Jl. Riau No. 10, Bandung 87722118899
+3210012606730005 Yoga Septian Kimia SMA Senin & Rabu Jl. Setiabudi No. 75, Bandung 83811449977
+3210011204830006 Nida Khairunnisa Bahasa Indonesia SMP Selasa & Kamis Jl. Antapani No. 31, Bandung 85766112244
+3210010907920007 Farhan Prakoso Ekonomi SMA Senin & Jumat Jl. Sarijadi No. 8, Bandung 81944553377
+3210012001820008 Suci Amalia Sosiologi SMA Rabu & Jumat Jl. Cibaduyut No. 29, Bandung 82277889900
+3210010805790009 Fajar Nugraha Matematika SMP Selasa & Sabtu Jl. Pahlawan No. 14, Bandung 87833556611
+3210010509840010 Ratna Dewi Bahasa Inggris SMA Kamis & Minggu Jl. Sukagalih No. 18, Bandung 85199224455
+3210010406850011 Eko Saputra Geografi SMA Senin & Rabu Jl. Lembang No. 3, Bandung 81255667711
+3210011107860012 Ayu Lestari Sejarah SMA Selasa & Kamis Jl. Cikutra No. 18, Bandung 81366778812
+3210012002870013 Bagus Pratama Informatika SMA Rabu & Jumat Jl. Dago No. 45, Bandung 82133445513
+3210010904900014 Lina Marlina PPKn SMA Senin & Sabtu Jl. Ujungberung No. 9, Bandung 85711223314
+3210012303890015 Rendi Kurnia Matematika SMP Selasa & Jumat Jl. Kopo No. 72, Bandung 87844556715
+3210011205840016 Dewi Anggraini Bahasa Indonesia SMA Kamis & Sabtu Jl. Margahayu No. 6, Bandung 81977889916
+3210010107810017 Imam Fauzi Fisika SMA Senin & Rabu Jl. Buah Batu No. 91, Bandung 82211113317
+3210011509820018 Salsa Nuraini Kimia SMA Selasa & Kamis Jl. Braga No. 11, Bandung 83822224418
+3210012206800019 Irfan Maulana Biologi SMP Rabu & Jumat Jl. Cisaranten No. 23, Bandung 85144446619
+3210010609850020 Putra Aditya Ekonomi SMA Senin & Sabtu Jl. Pasteur No. 28, Bandung 81388880020
+3210011707880021 Nadia Putri Bahasa Inggris SMP Selasa & Kamis Jl. Sukajadi No. 2, Bandung 81299887721
+3210010906890022 Rio Saputro Matematika SMA Rabu & Jumat Jl. Andir No. 10, Bandung 82199882222
+3210011409900023 Tiara Rahman Sosiologi SMA Senin & Kamis Jl. Cibiru No. 33, Bandung 85733221123
+3210010307800024 Hadi Prasetyo Sejarah SMP Selasa & Sabtu Jl. Arcamanik No. 4, Bandung 87811224424
+3210011809850025 Mega Lestari Geografi SMA Rabu & Kamis Jl. Rancaekek No. 19, Bandung 81955663325
+3210010706840026 Bayu Firmansyah Informatika SMP Senin & Jumat Jl. Cileunyi No. 15, Bandung 82233114426
+3210012509900027 Vina Oktaviani PPKn SMP Selasa & Kamis Jl. Cimenyan No. 6, Bandung 83899002727
+3210010405870028 Reno Wijaya Fisika SMA Rabu & Sabtu Jl. Cicaheum No. 29, Bandung 85122334428
+3210011608840029 Elsa Permata Kimia SMA Senin & Rabu Jl. Cinambo No. 12, Bandung 81366771929
+3210012005790030 Indra Gunawan Matematika SMP Selasa & Jumat Jl. Gedebage No. 8, Bandung 82277889930
+3210010109900031 Agus Setiawan Biologi SMA Senin & Kamis Jl. Antapani No. 4, Bandung 81233445531
+3210010208910032 Rina Kartika Bahasa Indonesia SMP Selasa & Jumat Jl. Kiaracondong No. 7, Bandung 81344556632
+3210010307920033 Herman Wijaya Fisika SMA Rabu & Sabtu Jl. Cibiru No. 14, Bandung 82155667733
+3210010408930034 Dian Prameswari Kimia SMA Kamis & Minggu Jl. Panyileukan No. 9, Bandung 85166778834
+3210010507940035 Rizky Ananda Matematika SMA Senin & Rabu Jl. Pasirkoja No. 20, Bandung 87877889935
+3210010608950036 Melati Puspita Sosiologi SMA Selasa & Kamis Jl. Leuwipanjang No. 3, Bandung 81988990036
+3210010707960037 Arman Hakim Ekonomi SMA Rabu & Jumat Jl. Rajawali No. 17, Bandung 82299001137
+3210010808970038 Fitri Handayani Bahasa Inggris SMA Senin & Sabtu Jl. Braga No. 21, Bandung 83811112238
+3210010907980039 Dodi Firmansyah Geografi SMA Selasa & Kamis Jl. Cijerah No. 5, Bandung 85722223339
+3210011008990040 Nurlaila PPKn SMA Rabu & Jumat Jl. Cigondewah No. 8, Bandung 81933334440
+3210011107000041 Taufik Hidayat Informatika SMA Senin & Kamis Jl. Ujungberung No. 16, Bandung 82244445541
+3210011207010042 Rosa Amelia Biologi SMP Selasa & Sabtu Jl. Cisarua No. 2, Bandung 83855556642
+3210011307020043 Kevin Pratama Fisika SMA Rabu & Jumat Jl. Ledeng No. 11, Bandung 85166667743
+3210011407030044 Sinta Maharani Kimia SMA Senin & Rabu Jl. Setrasari No. 6, Bandung 81277778844
+3210011507040045 Fahmi Akbar Matematika SMP Selasa & Kamis Jl. Tubagus Ismail No. 19, Bandung 82288889945
+3210011607050046 Rahayu Wulandari Bahasa Indonesia SMA Rabu & Jumat Jl. Sukamulya No. 4, Bandung 83899990046
+3210011707060047 Hendra Gunawan Ekonomi SMA Senin & Sabtu Jl. Cibadak No. 13, Bandung 85100001147
+3210011807070048 Putri Laksmi Bahasa Inggris SMP Selasa & Kamis Jl. Peta No. 25, Bandung 81211112248
+3210011907080049 Alif Ramadhan Sejarah SMA Rabu & Jumat Jl. Pagarsih No. 18, Bandung 82222223349
+3210012007090050 Mira Oktaviani Sosiologi SMA Kamis & Minggu Jl. Jamika No. 30, Bandung 83833334450
+
+===== DATA NILAI =====
+3275011204050001 Matematika 88 2025-01-10
+3275011506090002 Bahasa Inggris 90 2025-01-11
+3275012108030003 Fisika 85 2025-01-12
+3275010401070004 Biologi 92 2025-01-12
+3275012303110005 Kimia 87 2025-01-13
+3275010608010006 Bahasa Indonesia 89 2025-01-13
+3275010912020007 Matematika 91 2025-01-14
+3275011709050008 Bahasa Inggris 86 2025-01-14
+3275012512020009 Ekonomi 84 2025-01-15
+3275010202050010 Sejarah 90 2025-01-15
+3275011404060011 Informatika 95 2025-01-16
+3275011008080012 PPKn 88 2025-01-16
+3275011909050013 Matematika 92 2025-01-17
+3275012307040014 Geografi 85 2025-01-17
+3275010811020015 Fisika 87 2025-01-18
+3275011209060016 Bahasa Indonesia 90 2025-01-18
+3275012503050017 Matematika 93 2025-01-19
+3275010410070018 Sosiologi 86 2025-01-19
+3275012204060019 Biologi 88 2025-01-20
+3275011708090020 Ekonomi 84 2025-01-20
+3275012121210021 Fisika 89 2025-01-21
+3275012222220022 Bahasa Inggris 91 2025-01-21
+3275012323230023 Kimia 86 2025-01-22
+3275012424240024 Biologi 90 2025-01-22
+3275012525250025 Matematika 88 2025-01-23
+3275012626260026 Ekonomi 85 2025-01-23
+3275012727270027 Fisika 92 2025-01-24
+3275012828280028 PPKn 87 2025-01-24
+3275012929290029 Kimia 89 2025-01-25
+3275013030300030 Matematika 90 2025-01-25
+
+===== DATA ABSENSI =====
+3275011204050001 2025-01-10 Hadir
+3275011506090002 2025-01-10 Hadir
+3275012108030003 2025-01-10 Izin
+3275010401070004 2025-01-10 Hadir
+3275012303110005 2025-01-10 Alpha
+3275010608010006 2025-01-11 Hadir
+3275010912020007 2025-01-11 Hadir
+3275011709050008 2025-01-11 Hadir
+3275012512020009 2025-01-11 Izin
+3275010202050010 2025-01-11 Hadir
+3275011404060011 2025-01-12 Hadir
+3275011008080012 2025-01-12 Alpha
+3275011909050013 2025-01-12 Hadir
+3275012307040014 2025-01-12 Hadir
+3275010811020015 2025-01-12 Izin
+3275011209060016 2025-01-13 Hadir
+3275012503050017 2025-01-13 Hadir
+3275010410070018 2025-01-13 Hadir
+3275012204060019 2025-01-13 Alpha
+3275011708090020 2025-01-13 Hadir
+3275012121210021 2025-01-14 Hadir
+3275012222220022 2025-01-14 Izin
+3275012323230023 2025-01-14 Hadir
+3275012424240024 2025-01-14 Hadir
+3275012525250025 2025-01-14 Alpha
+3275012626260026 2025-01-15 Hadir
+3275012727270027 2025-01-15 Hadir
+3275012828280028 2025-01-15 Izin
+3275012929290029 2025-01-15 Hadir
+3275013030300030 2025-01-15 Hadir

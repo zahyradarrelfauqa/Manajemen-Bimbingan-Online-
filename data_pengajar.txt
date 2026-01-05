@@ -1,0 +1,50 @@
+3210011504880001|Ahmad Fadillah|Matematika SMA|Senin & Kamis|Jl. Cimahi No. 22, Bandung|081277881122
+3210010703910002|Lestari Wulandari|Bahasa Inggris SMP|Selasa & Jumat|Jl. Pasundan No. 5, Bandung|081344006611
+3210012209800003|Rifqi Ramadhan|Fisika SMA|Rabu & Sabtu|Jl. Karapitan No. 44, Bandung|082199005522
+3210010311800004|Dina Rosalia|Biologi SMA|Kamis & Sabtu|Jl. Riau No. 10, Bandung|087722118899
+3210012606730005|Yoga Septian|Kimia SMA|Senin & Rabu|Jl. Setiabudi No. 75, Bandung|083811449977
+3210011204830006|Nida Khairunnisa|Bahasa Indonesia SMP|Selasa & Kamis|Jl. Antapani No. 31, Bandung|085766112244
+3210010907920007|Farhan Prakoso|Ekonomi SMA|Senin & Jumat|Jl. Sarijadi No. 8, Bandung|081944553377
+3210012001820008|Suci Amalia|Sosiologi SMA|Rabu & Jumat|Jl. Cibaduyut No. 29, Bandung|082277889900
+3210010805790009|Fajar Nugraha|Matematika SMP|Selasa & Sabtu|Jl. Pahlawan No. 14, Bandung|087833556611
+3210010509840010|Ratna Dewi|Bahasa Inggris SMA|Kamis & Minggu|Jl. Sukagalih No. 18, Bandung|085199224455
+3210010406850011|Eko Saputra|Geografi SMA|Senin & Rabu|Jl. Lembang No. 3, Bandung|081255667711
+3210011107860012|Ayu Lestari|Sejarah SMA|Selasa & Kamis|Jl. Cikutra No. 18, Bandung|081366778812
+3210012002870013|Bagus Pratama|Informatika SMA|Rabu & Jumat|Jl. Dago No. 45, Bandung|082133445513
+3210010904900014|Lina Marlina|PPKn SMA|Senin & Sabtu|Jl. Ujungberung No. 9, Bandung|085711223314
+3210012303890015|Rendi Kurnia|Matematika SMP|Selasa & Jumat|Jl. Kopo No. 72, Bandung|087844556715
+3210011205840016|Dewi Anggraini|Bahasa Indonesia SMA|Kamis & Sabtu|Jl. Margahayu No. 6, Bandung|081977889916
+3210010107810017|Imam Fauzi|Fisika SMA|Senin & Rabu|Jl. Buah Batu No. 91, Bandung|082211113317
+3210011509820018|Salsa Nuraini|Kimia SMA|Selasa & Kamis|Jl. Braga No. 11, Bandung|083822224418
+3210012206800019|Irfan Maulana|Biologi SMP|Rabu & Jumat|Jl. Cisaranten No. 23, Bandung|085144446619
+3210010609850020|Putra Aditya|Ekonomi SMA|Senin & Sabtu|Jl. Pasteur No. 28, Bandung|081388880020
+3210011707880021|Nadia Putri|Bahasa Inggris SMP|Selasa & Kamis|Jl. Sukajadi No. 2, Bandung|081299887721
+3210010906890022|Rio Saputro|Matematika SMA|Rabu & Jumat|Jl. Andir No. 10, Bandung|082199882222
+3210011409900023|Tiara Rahman|Sosiologi SMA|Senin & Kamis|Jl. Cibiru No. 33, Bandung|085733221123
+3210010307800024|Hadi Prasetyo|Sejarah SMP|Selasa & Sabtu|Jl. Arcamanik No. 4, Bandung|087811224424
+3210011809850025|Mega Lestari|Geografi SMA|Rabu & Kamis|Jl. Rancaekek No. 19, Bandung|081955663325
+3210010706840026|Bayu Firmansyah|Informatika SMP|Senin & Jumat|Jl. Cileunyi No. 15, Bandung|082233114426
+3210012509900027|Vina Oktaviani|PPKn SMP|Selasa & Kamis|Jl. Cimenyan No. 6, Bandung|083899002727
+3210010405870028|Reno Wijaya|Fisika SMA|Rabu & Sabtu|Jl. Cicaheum No. 29, Bandung|085122334428
+3210011608840029|Elsa Permata|Kimia SMA|Senin & Rabu|Jl. Cinambo No. 12, Bandung|081366771929
+3210012005790030|Indra Gunawan|Matematika SMP|Selasa & Jumat|Jl. Gedebage No. 8, Bandung|082277889930
+3210010109900031|Agus Setiawan|Biologi SMA|Senin & Kamis|Jl. Antapani No. 4, Bandung|081233445531
+3210010208910032|Rina Kartika|Bahasa Indonesia SMP|Selasa & Jumat|Jl. Kiaracondong No. 7, Bandung|081344556632
+3210010307920033|Herman Wijaya|Fisika SMA|Rabu & Sabtu|Jl. Cibiru No. 14, Bandung|082155667733
+3210010408930034|Dian Prameswari|Kimia SMA|Kamis & Minggu|Jl. Panyileukan No. 9, Bandung|085166778834
+3210010507940035|Rizky Ananda|Matematika SMA|Senin & Rabu|Jl. Pasirkoja No. 20, Bandung|087877889935
+3210010608950036|Melati Puspita|Sosiologi SMA|Selasa & Kamis|Jl. Leuwipanjang No. 3, Bandung|081988990036
+3210010707960037|Arman Hakim|Ekonomi SMA|Rabu & Jumat|Jl. Rajawali No. 17, Bandung|082299001137
+3210010808970038|Fitri Handayani|Bahasa Inggris SMA|Senin & Sabtu|Jl. Braga No. 21, Bandung|083811112238
+3210010907980039|Dodi Firmansyah|Geografi SMA|Selasa & Kamis|Jl. Cijerah No. 5, Bandung|085722223339
+3210011008990040|Nurlaila|PPKn SMA|Rabu & Jumat|Jl. Cigondewah No. 8, Bandung|081933334440
+3210011107000041|Taufik Hidayat|Informatika SMA|Senin & Kamis|Jl. Ujungberung No. 16, Bandung|082244445541
+3210011207010042|Rosa Amelia|Biologi SMP|Selasa & Sabtu|Jl. Cisarua No. 2, Bandung|083855556642
+3210011307020043|Kevin Pratama|Fisika SMA|Rabu & Jumat|Jl. Ledeng No. 11, Bandung|085166667743
+3210011407030044|Sinta Maharani|Kimia SMA|Senin & Rabu|Jl. Setrasari No. 6, Bandung|081277778844
+3210011507040045|Fahmi Akbar|Matematika SMP|Selasa & Kamis|Jl. Tubagus Ismail No. 19, Bandung|082288889945
+3210011607050046|Rahayu Wulandari|Bahasa Indonesia SMA|Rabu & Jumat|Jl. Sukamulya No. 4, Bandung|083899990046
+3210011707060047|Hendra Gunawan|Ekonomi SMA|Senin & Sabtu|Jl. Cibadak No. 13, Bandung|085100001147
+3210011807070048|Putri Laksmi|Bahasa Inggris SMP|Selasa & Kamis|Jl. Peta No. 25, Bandung|081211112248
+3210011907080049|Alif Ramadhan|Sejarah SMA|Rabu & Jumat|Jl. Pagarsih No. 18, Bandung|082222223349
+3210012007090050|Mira Oktaviani|Sosiologi SMA|Kamis & Minggu|Jl. Jamika No. 30, Bandung|083833334450
