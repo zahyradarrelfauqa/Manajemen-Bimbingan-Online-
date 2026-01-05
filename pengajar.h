@@ -4,6 +4,7 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include <iomanip>
 #include "kelas.h"
 #include "akun.h"
 using namespace std;
@@ -237,7 +238,14 @@ void PengajarMenu::lihatJadwalMengajar() {
     }
 
     cout << "\n========== JADWAL MENGAJAR ==========\n";
-    cout << "ID\tHari\tJam\tMapel\tKelas\n";
+    cout << left 
+	     << setw(6) << "ID" 
+	     << setw(10) << "Hari" 
+	     << setw(15) << "Jam" 
+	     << setw(20) << "Mapel" 
+	     << setw(10) << "Kelas" 
+	     << endl;
+	cout << string(61, '-') << endl;
 
     string id, hari, jam, mapel, pengajarNIK, kelas;
     bool ada = false;
@@ -250,8 +258,13 @@ void PengajarMenu::lihatJadwalMengajar() {
         getline(file, kelas); // Baca sampai enter
 
         if (pengajarNIK == nikAsli) {
-            cout << id << "\t" << hari << "\t" << jam << "\t"
-                 << mapel << "\t" << kelas << "\n";
+             cout << left
+		             << setw(6) << id 
+		             << setw(10) << hari 
+		             << setw(15) << jam 
+		             << setw(20) << mapel 
+		             << setw(10) << kelas 
+		             << endl;
             ada = true;
         }
     }
@@ -332,7 +345,13 @@ void PengajarMenu::lihatNilaiPengajar() {
     }
 
     cout << "\n========== NILAI YANG ANDA BERIKAN (" << mapelAjar << ") ==========\n";
-    cout << "NIK_Siswa\tMapel\t\tNilai\tTanggal\n";
+    cout << left 
+	     << setw(15) << "NIK_Siswa" 
+	     << setw(20) << "Mapel" 
+	     << setw(10) << "Nilai" 
+	     << setw(15) << "Tanggal" 
+	     << endl;
+	cout << string(60, '=') << endl; // Garis pemisah
 
     string nis, mapel, nilaiStr, tanggal;
     bool ada = false;
@@ -345,9 +364,19 @@ void PengajarMenu::lihatNilaiPengajar() {
         // Hanya tampilkan nilai dari Mapel yang diajar oleh guru ini
         if (mapel == mapelAjar) {
              if (mapel.length() < 8)
-                cout << nis << "\t" << mapel << "\t\t" << nilaiStr << "\t" << tanggal << "\n";
+                cout << left
+		             << setw(15) << nis
+		             << setw(20) << mapel
+		             << setw(10) << nilaiStr
+		             << setw(15) << tanggal
+		             << endl;
             else
-                cout << nis << "\t" << mapel << "\t" << nilaiStr << "\t" << tanggal << "\n";
+                cout << left
+		             << setw(15) << nis
+		             << setw(20) << mapel
+		             << setw(10) << nilaiStr
+		             << setw(15) << tanggal
+		             << endl;
             ada = true;
         }
     }
