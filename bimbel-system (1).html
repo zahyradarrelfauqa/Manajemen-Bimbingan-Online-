@@ -1,0 +1,2289 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BIMON - Sistem Manajemen Bimbingan Belajar</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            padding: 30px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 3px solid #667eea;
+        }
+
+        .header h1 {
+            color: #667eea;
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            color: #666;
+        }
+
+        .menu-card {
+            display: none;
+            animation: fadeIn 0.5s;
+        }
+
+        .menu-card.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .menu-buttons {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .btn {
+            padding: 15px 25px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 600;
+            transition: all 0.3s;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background: #667eea;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #5568d3;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-success {
+            background: #48bb78;
+            color: white;
+        }
+
+        .btn-success:hover {
+            background: #38a169;
+            transform: translateY(-2px);
+        }
+
+        .btn-danger {
+            background: #f56565;
+            color: white;
+        }
+
+        .btn-danger:hover {
+            background: #e53e3e;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: #718096;
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            background: #4a5568;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #2d3748;
+            font-weight: 600;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 14px;
+            transition: border 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .table-container {
+            overflow-x: auto;
+            margin: 20px 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+        }
+
+        table th {
+            background: #667eea;
+            color: white;
+            padding: 12px;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        table td {
+            padding: 12px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        table tr:hover {
+            background: #f7fafc;
+        }
+
+        .alert {
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+
+        .alert-success {
+            background: #c6f6d5;
+            color: #22543d;
+            border-left: 4px solid #48bb78;
+        }
+
+        .alert-error {
+            background: #fed7d7;
+            color: #742a2a;
+            border-left: 4px solid #f56565;
+        }
+
+        .alert-info {
+            background: #bee3f8;
+            color: #2c5282;
+            border-left: 4px solid #4299e1;
+        }
+
+        .card {
+            background: #f7fafc;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 4px solid #667eea;
+        }
+
+        .card h3 {
+            color: #2d3748;
+            margin-bottom: 15px;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .stat-card h4 {
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+
+        .stat-card p {
+            opacity: 0.9;
+        }
+
+        .breadcrumb {
+            padding: 10px 0;
+            margin-bottom: 20px;
+            color: #718096;
+        }
+
+        .breadcrumb span {
+            margin: 0 5px;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 10px;
+            margin: 20px 0;
+        }
+
+        .user-info {
+            background: #e6f2ff;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .user-info strong {
+            color: #2d3748;
+        }
+
+        @media (max-width: 768px) {
+            .menu-buttons {
+                grid-template-columns: 1fr;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .container {
+                padding: 15px;
+            }
+
+            .header h1 {
+                font-size: 1.5em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🎓 BIMON</h1>
+            <p>Sistem Informasi Manajemen Bimbingan Belajar</p>
+        </div>
+
+        <div id="alertContainer"></div>
+
+        <!-- Main Menu -->
+        <div id="mainMenu" class="menu-card active">
+            <h2>Menu Utama</h2>
+            <div class="menu-buttons">
+                <button class="btn btn-primary" onclick="showMenu('registerMenu')">📝 Registrasi Akun</button>
+                <button class="btn btn-success" onclick="showMenu('loginMenu')">🔐 Login</button>
+                <button class="btn btn-secondary" onclick="showMenu('aboutMenu')">ℹ️ Tentang Sistem</button>
+            </div>
+        </div>
+
+        <!-- Register Menu -->
+        <div id="registerMenu" class="menu-card">
+            <div class="breadcrumb">
+                <a href="#" onclick="showMenu('mainMenu')" style="color: #667eea;">Menu Utama</a>
+                <span>></span>
+                <span>Registrasi</span>
+            </div>
+            <h2>Registrasi Akun Baru</h2>
+            <div class="card">
+                <form id="registerForm">
+                    <div class="form-group">
+                        <label>Username:</label>
+                        <input type="text" id="regUsername" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Password:</label>
+                        <input type="password" id="regPassword" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Role:</label>
+                        <select id="regRole" required>
+                            <option value="">Pilih Role</option>
+                            <option value="1">Admin</option>
+                            <option value="2">Siswa</option>
+                            <option value="3">Pengajar</option>
+                        </select>
+                    </div>
+                    <div class="action-buttons">
+                        <button type="submit" class="btn btn-primary">Daftar</button>
+                        <button type="button" class="btn btn-secondary" onclick="showMenu('mainMenu')">Kembali</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Login Menu -->
+        <div id="loginMenu" class="menu-card">
+            <div class="breadcrumb">
+                <a href="#" onclick="showMenu('mainMenu')" style="color: #667eea;">Menu Utama</a>
+                <span>></span>
+                <span>Login</span>
+            </div>
+            <h2>Login</h2>
+            <div class="card">
+                <form id="loginForm">
+                    <div class="form-group">
+                        <label>Username:</label>
+                        <input type="text" id="loginUsername" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Password:</label>
+                        <input type="password" id="loginPassword" required>
+                    </div>
+                    <div class="action-buttons">
+                        <button type="submit" class="btn btn-success">Login</button>
+                        <button type="button" class="btn btn-secondary" onclick="showMenu('mainMenu')">Kembali</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- About Menu -->
+        <div id="aboutMenu" class="menu-card">
+            <div class="breadcrumb">
+                <a href="#" onclick="showMenu('mainMenu')" style="color: #667eea;">Menu Utama</a>
+                <span>></span>
+                <span>Tentang</span>
+            </div>
+            <h2>Tentang Sistem</h2>
+            <div class="card">
+                <h3>Fitur Sistem:</h3>
+                <ul style="line-height: 2; margin-left: 20px;">
+                    <li>✅ Manajemen Data Siswa</li>
+                    <li>✅ Manajemen Data Pengajar</li>
+                    <li>✅ Manajemen Jadwal Bimbingan</li>
+                    <li>✅ Manajemen Nilai</li>
+                    <li>✅ Manajemen Absensi & Kehadiran</li>
+                    <li>✅ Manajemen Keuangan</li>
+                    <li>✅ Laporan & Rekap Data</li>
+                    <li>✅ Backup Data</li>
+                </ul>
+            </div>
+            <button class="btn btn-secondary" onclick="showMenu('mainMenu')">Kembali</button>
+        </div>
+
+        <!-- Admin Menu -->
+        <div id="adminMenu" class="menu-card">
+            <div class="user-info">
+                <strong>Login sebagai:</strong> <span id="adminUsername"></span> (Admin)
+            </div>
+            <h2>Menu Admin</h2>
+            <div class="menu-buttons">
+                <button class="btn btn-primary" onclick="showMenu('manajemenSiswaMenu')">👨‍🎓 Manajemen Siswa</button>
+                <button class="btn btn-primary" onclick="showMenu('manajemenPengajarMenu')">👨‍🏫 Manajemen Pengajar</button>
+                <button class="btn btn-primary" onclick="showMenu('manajemenJadwalMenu')">📅 Manajemen Jadwal</button>
+                <button class="btn btn-primary" onclick="showMenu('manajemenNilaiMenu')">📊 Manajemen Nilai</button>
+                <button class="btn btn-primary" onclick="showMenu('manajemenAbsensiMenu')">✓ Manajemen Absensi</button>
+                <button class="btn btn-primary" onclick="showMenu('manajemenKeuanganMenu')">💰 Manajemen Keuangan</button>
+                <button class="btn btn-success" onclick="showMenu('laporanMenu')">📋 Laporan & Rekap</button>
+                <button class="btn btn-secondary" onclick="showMenu('backupMenu')">💾 Backup Data</button>
+                <button class="btn btn-danger" onclick="logout()">🚪 Logout</button>
+            </div>
+        </div>
+
+        <!-- Siswa Menu -->
+        <div id="siswaMenu" class="menu-card">
+            <div class="user-info">
+                <strong>Login sebagai:</strong> <span id="siswaUsername"></span> (Siswa)
+            </div>
+            <h2>Menu Siswa</h2>
+            <div class="menu-buttons">
+                <button class="btn btn-primary" onclick="lihatProfilSiswa()">👤 Lihat Profil</button>
+                <button class="btn btn-primary" onclick="lihatJadwalSiswa()">📅 Lihat Jadwal</button>
+                <button class="btn btn-primary" onclick="lihatNilaiSiswa()">📊 Lihat Nilai</button>
+                <button class="btn btn-primary" onclick="lihatAbsensiSiswa()">✓ Lihat Absensi</button>
+                <button class="btn btn-primary" onclick="lihatPembayaranSiswa()">💰 Status Pembayaran</button>
+                <button class="btn btn-danger" onclick="logout()">🚪 Logout</button>
+            </div>
+            <div id="siswaContent"></div>
+        </div>
+
+        <!-- Pengajar Menu -->
+        <div id="pengajarMenu" class="menu-card">
+            <div class="user-info">
+                <strong>Login sebagai:</strong> <span id="pengajarUsername"></span> (Pengajar)
+            </div>
+            <h2>Menu Pengajar</h2>
+            <div class="menu-buttons">
+                <button class="btn btn-primary" onclick="lihatProfilPengajar()">👤 Lihat Profil</button>
+                <button class="btn btn-primary" onclick="lihatJadwalPengajar()">📅 Jadwal Mengajar</button>
+                <button class="btn btn-primary" onclick="showMenu('inputNilaiPengajarMenu')">📝 Input Nilai</button>
+                <button class="btn btn-primary" onclick="lihatNilaiPengajar()">📊 Lihat Nilai</button>
+                <button class="btn btn-primary" onclick="showMenu('inputAbsensiPengajarMenu')">✓ Input Absensi</button>
+                <button class="btn btn-danger" onclick="logout()">🚪 Logout</button>
+            </div>
+            <div id="pengajarContent"></div>
+        </div>
+
+        <!-- Manajemen Siswa -->
+        <div id="manajemenSiswaMenu" class="menu-card">
+            <div class="breadcrumb">
+                <a href="#" onclick="showMenu('adminMenu')" style="color: #667eea;">Menu Admin</a>
+                <span>></span>
+                <span>Manajemen Siswa</span>
+            </div>
+            <h2>Manajemen Data Siswa</h2>
+            <div class="menu-buttons">
+                <button class="btn btn-success" onclick="showMenu('tambahSiswaMenu')">➕ Tambah Siswa</button>
+                <button class="btn btn-primary" onclick="lihatDaftarSiswa()">📋 Lihat Daftar</button>
+                <button class="btn btn-primary" onclick="showMenu('editSiswaMenu')">✏️ Edit Siswa</button>
+                <button class="btn btn-danger" onclick="showMenu('hapusSiswaMenu')">🗑️ Hapus Siswa</button>
+                <button class="btn btn-primary" onclick="showMenu('cariSiswaMenu')">🔍 Cari Siswa</button>
+                <button class="btn btn-secondary" onclick="showMenu('adminMenu')">Kembali</button>
+            </div>
+            <div id="siswaAdminContent"></div>
+        </div>
+
+        <!-- Tambah Siswa -->
+        <div id="tambahSiswaMenu" class="menu-card">
+            <div class="breadcrumb">
+                <a href="#" onclick="showMenu('adminMenu')" style="color: #667eea;">Menu Admin</a>
+                <span>></span>
+                <a href="#" onclick="showMenu('manajemenSiswaMenu')" style="color: #667eea;">Manajemen Siswa</a>
+                <span>></span>
+                <span>Tambah Siswa</span>
+            </div>
+            <h2>Tambah Siswa Baru</h2>
+            <div class="card">
+                <form id="tambahSiswaForm">
+                    <div class="form-group">
+                        <label>NIK:</label>
+                        <input type="number" id="siswaNIK" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Nama:</label>
+                        <input type="text" id="siswaNama" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Kelas:</label>
+                        <input type="text" id="siswaKelas" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Alamat:</label>
+                        <textarea id="siswaAlamat" rows="3" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>No. Telepon:</label>
+                        <input type="number" id="siswaTelp" required>
+                    </div>
+                    <div class="action-buttons">
+                        <button type="submit" class="btn btn-success">Simpan</button>
+                        <button type="button" class="btn btn-secondary" onclick="showMenu('manajemenSiswaMenu')">Kembali</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Edit Siswa -->
+        <div id="editSiswaMenu" class="menu-card">
+            <div class="breadcrumb">
+                <a href="#" onclick="showMenu('adminMenu')" style="color: #667eea;">Menu Admin</a>
+                <span>></span>
+                <a href="#" onclick="showMenu('manajemenSiswaMenu')" style="color: #667eea;">Manajemen Siswa</a>
+                <span>></span>
+                <span>Edit Siswa</span>
+            </div>
+            <h2>Edit Data Siswa</h2>
+            <div class="card">
+                <form id="editSiswaForm">
+                    <div class="form-group">
+                        <label>Cari NIK:</label>
+                        <input type="number" id="editSiswaSearchNIK" required>
+                        <button type="button" class="btn btn-primary" style="margin-top: 10px;" onclick="cariSiswaEdit()">Cari</button>
+                    </div>
+                    <div id="editSiswaFields" style="display: none;">
+                        <div class="form-group">
+                            <label>Nama (- untuk tidak diubah):</label>
+                            <input type="text" id="editSiswaNama">
+                        </div>
+                        <div class="form-group">
+                            <label>Kelas (- untuk tidak diubah):</label>
+                            <input type="text" id="editSiswaKelas">
+                        </div>
+                        <div class="form-group">
+                            <label>Alamat (- untuk tidak diubah):</label>
+                            <textarea id="editSiswaAlamat" rows="3"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>No. Telepon (0 untuk tidak diubah):</label>
+                            <input type="number" id="editSiswaTelp">
+                        </div>
+                        <div class="action-buttons">
+                            <button type="submit" class="btn btn-success">Update</button>
+                        </div>
+                    </div>
+                </form>
+                <button class="btn btn-secondary" onclick="showMenu('manajemenSiswaMenu')">Kembali</button>
+            </div>
+        </div>
+
+        <!-- Hapus Siswa -->
+        <div id="hapusSiswaMenu" class="menu-card">
+            <div class="breadcrumb">
+                <a href="#" onclick="showMenu('adminMenu')" style="color: #667eea;">Menu Admin</a>
+                <span>></span>
+                <a href="#" onclick="showMenu('manajemenSiswaMenu')" style="color: #667eea;">Manajemen Siswa</a>
+                <span>></span>
+                <span>Hapus Siswa</span>
+            </div>
+            <h2>Hapus Siswa</h2>
+            <div class="card">
+                <form id="hapusSiswaForm">
+                    <div class="form-group">
+                        <label>Masukkan NIK:</label>
+                        <input type="number" id="hapusSiswaNIK" required>
+                    </div>
+                    <div class="action-buttons">
+                        <button type="submit" class="btn btn-danger">Hapus</button>
+                        <button type="button" class="btn btn-secondary" onclick="showMenu('manajemenSiswaMenu')">Kembali</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Cari Siswa -->
+        <div id="cariSiswaMenu" class="menu-card">
+            <div class="breadcrumb">
+                <a href="#" onclick="showMenu('adminMenu')" style="color: #667eea;">Menu Admin</a>
+                <span>></span>
+                <a href="#" onclick="showMenu('manajemenSiswaMenu')" style="color: #667eea;">Manajemen Siswa</a>
+                <span>></span>
+                <span>Cari Siswa</span>
+            </div>
+            <h2>Cari Siswa</h2>
+            <div class="card">
+                <form id="cariSiswaForm">
+                    <div class="form-group">
+                        <label>Masukkan NIK:</label>
+                        <input type="number" id="cariSiswaNIK" required>
+                    </div>
+                    <div class="action-buttons">
+                        <button type="submit" class="btn btn-primary">Cari</button>
+                        <button type="button" class="btn btn-secondary" onclick="showMenu('manajemenSiswaMenu')">Kembali</button>
+                    </div>
+                </form>
+            </div>
+            <div id="cariSiswaResult"></div>
+        </div>
+
+        <!-- Manajemen Pengajar (Similar structure) -->
+        <div id="manajemenPengajarMenu" class="menu-card">
+            <div class="breadcrumb">
+                <a href="#" onclick="showMenu('adminMenu')" style="color: #667eea;">Menu Admin</a>
+                <span>></span>
+                <span>Manajemen Pengajar</span>
+            </div>
+            <h2>Manajemen Data Pengajar</h2>
+            <div class="menu-buttons">
+                <button class="btn btn-success" onclick="showMenu('tambahPengajarMenu')">➕ Tambah Pengajar</button>
+                <button class="btn btn-primary" onclick="lihatDaftarPengajar()">📋 Lihat Daftar</button>
+                <button class="btn btn-primary" onclick="showMenu('cariPengajarMenu')">🔍 Cari Pengajar</button>
+                <button class="btn btn-secondary" onclick="showMenu('adminMenu')">Kembali</button>
+            </div>
+            <div id="pengajarAdminContent"></div>
+        </div>
+
+        <!-- Tambah Pengajar -->
+        <div id="tambahPengajarMenu" class="menu-card">
+            <div class="breadcrumb">
+                <a href="#" onclick="showMenu('adminMenu')" style="color: #667eea;">Menu Admin</a>
+                <span>></span>
+                <a href="#" onclick="showMenu('manajemenPengajarMenu')" style="color: #667eea;">Manajemen Pengajar</a>
+                <span>></span>
+                <span>Tambah Pengajar</span>
+            </div>
+            <h2>Tambah Pengajar Baru</h2>
+            <div class="card">
+                <form id="tambahPengajarForm">
+                    <div class="form-group">
+                        <label>NIK:</label>
+                        <input type="number" id="pengajarNIK" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Nama:</label>
+                        <input type="text" id="pengajarNama" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Mata Pelajaran:</label>
+                        <input type="text" id="pengajarMapel" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Jadwal:</label>
+                        <input type="text" id="pengajarJadwal" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Alamat:</label>
+                        <textarea id="pengajarAlamat" rows="3" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>No. Telepon:</label>
+                        <input type="number" id="pengajarTelp" required>
+                    </div>
+                    <div class="action-buttons">
+                        <button type="submit" class="btn btn-success">Simpan</button>
+                        <button type="button" class="btn btn-secondary" onclick="showMenu('manajemenPengajarMenu')">Kembali</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Cari Pengajar -->
+        <div id="cariPengajarMenu" class="menu-card">
+            <div class="breadcrumb">
+                <a href="#" onclick="showMenu('adminMenu')" style="color: #667eea;">Menu Admin</a>
+                <span>></span>
+                <a href="#" onclick="showMenu('manajemenPengajarMenu')" style="color: #667eea;">Manajemen Pengajar</a>
+                <span>></span>
+                <span>Cari Pengajar</span>
+            </div>
+            <h2>Cari Pengajar Berdasarkan Mapel</h2>
+            <div class="card">
+                <form id="cariPengajarForm">
+                    <div class="form-group">
+                        <label>Mata Pelajaran:</label>
+                        <input type="text" id="cariPengajarMapel" required>
+                    </div>
+                    <div class="action-buttons">
+                        <button type="submit" class="btn btn-primary">Cari</button>
+                        <button type="button" class="btn btn-secondary" onclick="showMenu('manajemenPengajarMenu')">Kembali</button>
+                    </div>
+                </form>
+            </div>
+            <div id="cariPengajarResult"></div>
+        </div>
+
+        <!-- Manajemen Jadwal -->
+        <div id="manajemenJadwalMenu" class="menu-card">
+            <div class="breadcrumb">
+                <a href="#" onclick="showMenu('adminMenu')" style="color: #667eea;">Menu Admin</a>
+                <span>></span>
+                <span>Manajemen Jadwal</span>
+            </div>
+            <h2>Manajemen Jadwal Bimbingan</h2>
+            <div class="menu-buttons">
+                <button class="btn btn-success" onclick="showMenu('tambahJadwalMenu')">➕ Tambah Jadwal</button>
+                <button class="btn btn-primary" onclick="lihatSemuaJadwal()">📋 Lihat Semua Jadwal</button>
+                <button class="btn btn-primary" onclick="showMenu('cariJadwalMenu')">🔍 Cari Jadwal</button>
+                <button class="btn btn-secondary" onclick="showMenu('adminMenu')">Kembali</button>
+            </div>
+            <div id="jadwalAdminContent"></div>
+        </div>
+
+        <!-- Tambah Jadwal -->
+        <div id="tambahJadwalMenu" class="menu-card">
+            <div class="breadcrumb">
+                <a href="#" onclick="showMenu('adminMenu')" style="color: #667eea;">Menu Admin</a>
+                <span>></span>
+                <a href="#" onclick="showMenu('manajemenJadwalMenu')" style="color: #667eea;">Manajemen Jadwal</a>
+                <span>></span>
+                <span>Tambah Jadwal</span>
+            </div>
+            <h2>Tambah Jadwal Baru</h2>
+            <div class="card">
+                <form id="tambahJadwalForm">
+                    <div class="form-group">
+                        <label>ID Jadwal:</label>
+                        <input type="text" id="jadwalID" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Hari:</label>
+                        <select id="jadwalHari" required>
+                            <option value="">Pilih Hari</option>
+                            <option value="Senin">Senin</option>
+                            <option value="Selasa">Selasa</option>
+                            <option value="Rabu">Rabu</option>
+                            <option value="Kamis">Kamis</option>
+                            <option value="Jumat">Jumat</option>
+                            <option value="Sabtu">Sabtu</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Jam:</label>
+                        <input type="time" id="jadwalJam" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Mata Pelajaran:</label>
+                        <input type="text" id="jadwalMapel" required>
+                    </div>
+                    <div class="form-group">
+                        <label>NIK Pengajar:</label>
+                        <input type="number" id="jadwalPengajarNIK" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Kelas:</label>
+                        <input type="text" id="jadwalKelas" required>
+                    </div>
+                    <div class="action-buttons">
+                        <button type="submit" class="btn btn-success">Simpan</button>
+                        <button type="button" class="btn btn-secondary" onclick="showMenu('manajemenJadwalMenu')">Kembali</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Cari Jadwal -->
+        <div id="cariJadwalMenu" class="menu-card">
+            <div class="breadcrumb">
+                <a href="#" onclick="showMenu('adminMenu')" style="color: #667eea;">Menu Admin</a>
+                <span>></span>
+                <a href="#" onclick="showMenu('manajemenJadwalMenu')" style="color: #667eea;">Manajemen Jadwal</a>
+                <span>></span>
+                <span>Cari Jadwal</span>
+            </div>
+            <h2>Cari Jadwal</h2>
+            <div class="card">
+                <form id="cariJadwalForm">
+                    <div class="form-group">
+                        <label>ID Jadwal:</label>
+                        <input type="text" id="cariJadwalID" required>
+                    </div>
+                    <div class="action-buttons">
+                        <button type="submit" class="btn btn-primary">Cari</button>
+                        <button type="button" class="btn btn-secondary" onclick="showMenu('manajemenJadwalMenu')">Kembali</button>
+                    </div>
+                </form>
+            </div>
+            <div id="cariJadwalResult"></div>
+        </div>
+
+        <!-- Manajemen Nilai -->
+        <div id="manajemenNilaiMenu" class="menu-card">
+            <div class="breadcrumb">
+                <a href="#" onclick="showMenu('adminMenu')" style="color: #667eea;">Menu Admin</a>
+                <span>></span>
+                <span>Manajemen Nilai</span>
+            </div>
+            <h2>Manajemen Nilai</h2>
+            <div class="menu-buttons">
+                <button class="btn btn-success" onclick="showMenu('tambahNilaiMenu')">➕ Tambah Nilai</button>
+                <button class="btn btn-primary" onclick="lihatSemuaNilai()">📋 Lihat Semua Nilai</button>
+                <button class="btn btn-primary" onclick="showMenu('evaluasiMapelMenu')">📊 Evaluasi per Mapel</button>
+                <button class="btn btn-secondary" onclick="showMenu('adminMenu')">Kembali</button>
+            </div>
+            <div id="nilaiAdminContent"></div>
+        </div>
+
+        <!-- Tambah Nilai -->
+        <div id="tambahNilaiMenu" class="menu-card">
+            <div class="breadcrumb">
+                <a href="#" onclick="showMenu('adminMenu')" style="color: #667eea;">Menu Admin</a>
+                <span>></span>
+                <a href="#" onclick="showMenu('manajemenNilaiMenu')" style="color: #667eea;">Manajemen Nilai</a>
+                <span>></span>
+                <span>Tambah Nilai</span>
+            </div>
+            <h2>Tambah Nilai Siswa</h2>
+            <div class="card">
+                <form id="tambahNilaiForm">
+                    <div class="form-group">
+                        <label>NIK Siswa:</label>
+                        <input type="number" id="nilaiSiswaNIK" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Mata Pelajaran:</label>
+                        <input type="text" id="nilaiMapel" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Nilai (0-100):</label>
+                        <input type="number" id="nilaiAngka" min="0" max="100" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Tanggal:</label>
+                        <input type="date" id="nilaiTanggal" required>
+                    </div>
+                    <div class="action-buttons">
+                        <button type="submit" class="btn btn-success">Simpan</button>
+                        <button type="button" class="btn btn-secondary" onclick="showMenu('manajemenNilaiMenu')">Kembali</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Evaluasi Mapel -->
+        <div id="evaluasiMapelMenu" class="menu-card">
+            <div class="breadcrumb">
+                <a href="#" onclick="showMenu('adminMenu')" style="color: #667eea;">Menu Admin</a>
+                <span>></span>
+                <a href="#" onclick="showMenu('manajemenNilaiMenu')" style="color: #667eea;">Manajemen Nilai</a>
+                <span>></span>
+                <span>Evaluasi per Mapel</span>
+            </div>
+            <h2>Evaluasi Nilai per Mapel</h2>
+            <div class="card">
+                <form id="evaluasiMapelForm">
+                    <div class="form-group">
+                        <label>Mata Pelajaran:</label>
+                        <input type="text" id="evaluasiMapel" required>
+                    </div>
+                    <div class="action-buttons">
+                        <button type="submit" class="btn btn-primary">Evaluasi</button>
+                        <button type="button" class="btn btn-secondary" onclick="showMenu('manajemenNilaiMenu')">Kembali</button>
+                    </div>
+                </form>
+            </div>
+            <div id="evaluasiMapelResult"></div>
+        </div>
+
+        <!-- Manajemen Absensi -->
+        <div id="manajemenAbsensiMenu" class="menu-card">
+            <div class="breadcrumb">
+                <a href="#" onclick="showMenu('adminMenu')" style="color: #667eea;">Menu Admin</a>
+                <span>></span>
+                <span>Manajemen Absensi</span>
+            </div>
+            <h2>Manajemen Absensi & Kehadiran</h2>
+            <div class="menu-buttons">
+                <button class="btn btn-success" onclick="showMenu('inputAbsensiMenu')">➕ Input Absensi</button>
+                <button class="btn btn-primary" onclick="lihatSemuaAbsensi()">📋 Lihat Absensi</button>
+                <button class="btn btn-primary" onclick="showMenu('laporanBulananMenu')">📅 Laporan Bulanan</button>
+                <button class="btn btn-primary" onclick="showMenu('persentaseKehadiranMenu')">📊 Persentase Kehadiran</button>
+                <button class="btn btn-secondary" onclick="showMenu('adminMenu')">Kembali</button>
+            </div>
+            <div id="absensiAdminContent"></div>
+        </div>
+
+        <!-- Input Absensi -->
+        <div id="inputAbsensiMenu" class="menu-card">
+            <div class="breadcrumb">
+                <a href="#" onclick="showMenu('adminMenu')" style="color: #667eea;">Menu Admin</a>
+                <span>></span>
+                <a href="#" onclick="showMenu('manajemenAbsensiMenu')" style="color: #667eea;">Manajemen Absensi</a>
+                <span>></span>
+                <span>Input Absensi</span>
+            </div>
+            <h2>Input Absensi Siswa</h2>
+            <div class="card">
+                <form id="inputAbsensiForm">
+                    <div class="form-group">
+                        <label>NIK Siswa:</label>
+                        <input type="number" id="absensiNIK" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Tanggal:</label>
+                        <input type="date" id="absensiTanggal" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Status:</label>
+                        <select id="absensiStatus" required>
+                            <option value="">Pilih Status</option>
+                            <option value="H">H - Hadir</option>
+                            <option value="I">I - Izin</option>
+                            <option value="S">S - Sakit</option>
+                            <option value="A">A - Alpha</option>
+                        </select>
+                    </div>
+                    <div class="action-buttons">
+                        <button type="submit" class="btn btn-success">Simpan</button>
+                        <button type="button" class="btn btn-secondary" onclick="showMenu('manajemenAbsensiMenu')">Kembali</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Laporan Bulanan -->
+        <div id="laporanBulananMenu" class="menu-card">
+            <div class="breadcrumb">
+                <a href="#" onclick="showMenu('adminMenu')" style="color: #667eea;">Menu Admin</a>
+                <span>></span>
+                <a href="#" onclick="showMenu('manajemenAbsensiMenu')" style="color: #667eea;">Manajemen Absensi</a>
+                <span>></span>
+                <span>Laporan Bulanan</span>
+            </div>
+            <h2>Laporan Kehadiran Bulanan</h2>
+            <div class="card">
+                <form id="laporanBulananForm">
+                    <div class="form-group">
+                        <label>Bulan:</label>
+                        <select id="laporanBulan" required>
+                            <option value="">Pilih Bulan</option>
+                            <option value="01">Januari</option>
+                            <option value="02">Februari</option>
+                            <option value="03">Maret</option>
+                            <option value="04">April</option>
+                            <option value="05">Mei</option>
+                            <option value="06">Juni</option>
+                            <option value="07">Juli</option>
+                            <option value="08">Agustus</option>
+                            <option value="09">September</option>
+                            <option value="10">Oktober</option>
+                            <option value="11">November</option>
+                            <option value="12">Desember</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Tahun:</label>
+                        <input type="number" id="laporanTahun" value="2025" required>
+                    </div>
+                    <div class="action-buttons">
+                        <button type="submit" class="btn btn-primary">Lihat Laporan</button>
+                        <button type="button" class="btn btn-secondary" onclick="showMenu('manajemenAbsensiMenu')">Kembali</button>
+                    </div>
+                </form>
+            </div>
+            <div id="laporanBulananResult"></div>
+        </div>
+
+        <!-- Persentase Kehadiran -->
+        <div id="persentaseKehadiranMenu" class="menu-card">
+            <div class="breadcrumb">
+                <a href="#" onclick="showMenu('adminMenu')" style="color: #667eea;">Menu Admin</a>
+                <span>></span>
+                <a href="#" onclick="showMenu('manajemenAbsensiMenu')" style="color: #667eea;">Manajemen Absensi</a>
+                <span>></span>
+                <span>Persentase Kehadiran</span>
+            </div>
+            <h2>Hitung Persentase Kehadiran</h2>
+            <div class="card">
+                <form id="persentaseKehadiranForm">
+                    <div class="form-group">
+                        <label>NIK Siswa:</label>
+                        <input type="number" id="persentaseNIK" required>
+                    </div>
+                    <div class="action-buttons">
+                        <button type="submit" class="btn btn-primary">Hitung</button>
+                        <button type="button" class="btn btn-secondary" onclick="showMenu('manajemenAbsensiMenu')">Kembali</button>
+                    </div>
+                </form>
+            </div>
+            <div id="persentaseKehadiranResult"></div>
+        </div>
+
+        <!-- Manajemen Keuangan -->
+        <div id="manajemenKeuanganMenu" class="menu-card">
+            <div class="breadcrumb">
+                <a href="#" onclick="showMenu('adminMenu')" style="color: #667eea;">Menu Admin</a>
+                <span>></span>
+                <span>Manajemen Keuangan</span>
+            </div>
+            <h2>Manajemen Keuangan</h2>
+            <div class="menu-buttons">
+                <button class="btn btn-success" onclick="showMenu('tambahPembayaranMenu')">➕ Tambah Pembayaran</button>
+                <button class="btn btn-primary" onclick="lihatDaftarPembayaran()">📋 Daftar Pembayaran</button>
+                <button class="btn btn-primary" onclick="showMenu('laporanKeuanganSiswaMenu')">💰 Laporan per Siswa</button>
+                <button class="btn btn-primary" onclick="showMenu('updateStatusPembayaranMenu')">✏️ Update Status</button>
+                <button class="btn btn-secondary" onclick="showMenu('adminMenu')">Kembali</button>
+            </div>
+            <div id="keuanganAdminContent"></div>
+        </div>
+
+        <!-- Tambah Pembayaran -->
+        <div id="tambahPembayaranMenu" class="menu-card">
+            <div class="breadcrumb">
+                <a href="#" onclick="showMenu('adminMenu')" style="color: #667eea;">Menu Admin</a>
+                <span>></span>
+                <a href="#" onclick="showMenu('manajemenKeuanganMenu')" style="color: #667eea;">Manajemen Keuangan</a>
+                <span>></span>
+                <span>Tambah Pembayaran</span>
+            </div>
+            <h2>Tambah Pembayaran</h2>
+            <div class="card">
+                <form id="tambahPembayaranForm">
+                    <div class="form-group">
+                        <label>ID Transaksi:</label>
+                        <input type="text" id="pembayaranID" required>
+                    </div>
+                    <div class="form-group">
+                        <label>NIK Siswa:</label>
+                        <input type="number" id="pembayaranNIK" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Jenis Pembayaran:</label>
+                        <select id="pembayaranJenis" required>
+                            <option value="">Pilih Jenis</option>
+                            <option value="SPP">SPP</option>
+                            <option value="Modul">Modul</option>
+                            <option value="Les">Les Privat</option>
+                            <option value="Ujian">Ujian</option>
+                            <option value="Lainnya">Lainnya</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Jumlah:</label>
+                        <input type="number" id="pembayaranJumlah" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Tanggal:</label>
+                        <input type="date" id="pembayaranTanggal" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Status:</label>
+                        <select id="pembayaranStatus" required>
+                            <option value="">Pilih Status</option>
+                            <option value="Lunas">Lunas</option>
+                            <option value="Belum_Lunas">Belum Lunas</option>
+                        </select>
+                    </div>
+                    <div class="action-buttons">
+                        <button type="submit" class="btn btn-success">Simpan</button>
+                        <button type="button" class="btn btn-secondary" onclick="showMenu('manajemenKeuanganMenu')">Kembali</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Laporan Keuangan Siswa -->
+        <div id="laporanKeuanganSiswaMenu" class="menu-card">
+            <div class="breadcrumb">
+                <a href="#" onclick="showMenu('adminMenu')" style="color: #667eea;">Menu Admin</a>
+                <span>></span>
+                <a href="#" onclick="showMenu('manajemenKeuanganMenu')" style="color: #667eea;">Manajemen Keuangan</a>
+                <span>></span>
+                <span>Laporan per Siswa</span>
+            </div>
+            <h2>Laporan Keuangan Siswa</h2>
+            <div class="card">
+                <form id="laporanKeuanganSiswaForm">
+                    <div class="form-group">
+                        <label>NIK Siswa:</label>
+                        <input type="number" id="laporanKeuanganNIK" required>
+                    </div>
+                    <div class="action-buttons">
+                        <button type="submit" class="btn btn-primary">Lihat Laporan</button>
+                        <button type="button" class="btn btn-secondary" onclick="showMenu('manajemenKeuanganMenu')">Kembali</button>
+                    </div>
+                </form>
+            </div>
+            <div id="laporanKeuanganSiswaResult"></div>
+        </div>
+
+        <!-- Update Status Pembayaran -->
+        <div id="updateStatusPembayaranMenu" class="menu-card">
+            <div class="breadcrumb">
+                <a href="#" onclick="showMenu('adminMenu')" style="color: #667eea;">Menu Admin</a>
+                <span>></span>
+                <a href="#" onclick="showMenu('manajemenKeuanganMenu')" style="color: #667eea;">Manajemen Keuangan</a>
+                <span>></span>
+                <span>Update Status</span>
+            </div>
+            <h2>Update Status Pembayaran</h2>
+            <div class="card">
+                <form id="updateStatusPembayaranForm">
+                    <div class="form-group">
+                        <label>ID Transaksi:</label>
+                        <input type="text" id="updatePembayaranID" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Status Baru:</label>
+                        <select id="updatePembayaranStatus" required>
+                            <option value="">Pilih Status</option>
+                            <option value="Lunas">Lunas</option>
+                            <option value="Belum_Lunas">Belum Lunas</option>
+                        </select>
+                    </div>
+                    <div class="action-buttons">
+                        <button type="submit" class="btn btn-success">Update</button>
+                        <button type="button" class="btn btn-secondary" onclick="showMenu('manajemenKeuanganMenu')">Kembali</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Menu Laporan -->
+        <div id="laporanMenu" class="menu-card">
+            <div class="breadcrumb">
+                <a href="#" onclick="showMenu('adminMenu')" style="color: #667eea;">Menu Admin</a>
+                <span>></span>
+                <span>Laporan & Rekap</span>
+            </div>
+            <h2>Menu Laporan & Rekap Data</h2>
+            <div class="menu-buttons">
+                <button class="btn btn-primary" onclick="laporanDataSiswa()">📋 Laporan Siswa</button>
+                <button class="btn btn-primary" onclick="laporanDataPengajar()">📋 Laporan Pengajar</button>
+                <button class="btn btn-primary" onclick="laporanDataNilai()">📋 Laporan Nilai</button>
+                <button class="btn btn-primary" onclick="laporanDataKehadiran()">📋 Laporan Kehadiran</button>
+                <button class="btn btn-success" onclick="eksporSemuaLaporan()">💾 Ekspor Semua</button>
+                <button class="btn btn-secondary" onclick="showMenu('adminMenu')">Kembali</button>
+            </div>
+            <div id="laporanContent"></div>
+        </div>
+
+        <!-- Menu Backup -->
+        <div id="backupMenu" class="menu-card">
+            <div class="breadcrumb">
+                <a href="#" onclick="showMenu('adminMenu')" style="color: #667eea;">Menu Admin</a>
+                <span>></span>
+                <span>Backup Data</span>
+            </div>
+            <h2>Menu Backup Data</h2>
+            <div class="menu-buttons">
+                <button class="btn btn-success" onclick="backupSemuaData()">💾 Backup Semua Data</button>
+                <button class="btn btn-secondary" onclick="showMenu('adminMenu')">Kembali</button>
+            </div>
+            <div id="backupContent"></div>
+        </div>
+
+        <!-- Input Nilai Pengajar -->
+        <div id="inputNilaiPengajarMenu" class="menu-card">
+            <div class="breadcrumb">
+                <a href="#" onclick="showMenu('pengajarMenu')" style="color: #667eea;">Menu Pengajar</a>
+                <span>></span>
+                <span>Input Nilai</span>
+            </div>
+            <h2>Input Nilai Siswa</h2>
+            <div class="card">
+                <form id="inputNilaiPengajarForm">
+                    <div class="form-group">
+                        <label>NIK Siswa:</label>
+                        <input type="number" id="nilaiPengajarNIK" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Mata Pelajaran:</label>
+                        <input type="text" id="nilaiPengajarMapel" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Nilai (0-100):</label>
+                        <input type="number" id="nilaiPengajarAngka" min="0" max="100" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Tanggal:</label>
+                        <input type="date" id="nilaiPengajarTanggal" required>
+                    </div>
+                    <div class="action-buttons">
+                        <button type="submit" class="btn btn-success">Simpan</button>
+                        <button type="button" class="btn btn-secondary" onclick="showMenu('pengajarMenu')">Kembali</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Input Absensi Pengajar -->
+        <div id="inputAbsensiPengajarMenu" class="menu-card">
+            <div class="breadcrumb">
+                <a href="#" onclick="showMenu('pengajarMenu')" style="color: #667eea;">Menu Pengajar</a>
+                <span>></span>
+                <span>Input Absensi</span>
+            </div>
+            <h2>Input Absensi Siswa</h2>
+            <div class="card">
+                <form id="inputAbsensiPengajarForm">
+                    <div class="form-group">
+                        <label>NIK Siswa:</label>
+                        <input type="number" id="absensiPengajarNIK" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Tanggal:</label>
+                        <input type="date" id="absensiPengajarTanggal" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Status:</label>
+                        <select id="absensiPengajarStatus" required>
+                            <option value="">Pilih Status</option>
+                            <option value="H">H - Hadir</option>
+                            <option value="I">I - Izin</option>
+                            <option value="S">S - Sakit</option>
+                            <option value="A">A - Alpha</option>
+                        </select>
+                    </div>
+                    <div class="action-buttons">
+                        <button type="submit" class="btn btn-success">Simpan</button>
+                        <button type="button" class="btn btn-secondary" onclick="showMenu('pengajarMenu')">Kembali</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        // Storage simulasi (karena tidak bisa pakai localStorage di artifact)
+        let dataAkun = [];
+        let dataSiswa = [];
+        let dataPengajar = [];
+        let dataJadwal = [];
+        let dataNilai = [];
+        let dataAbsensi = [];
+        let dataKeuangan = [];
+        let currentUser = null;
+        let currentRole = null;
+
+        // Initialize dengan data contoh
+        function initializeData() {
+            // Data akun default
+            dataAkun = [
+                { username: 'admin', password: 'admin123', role: 1 },
+                { username: '12345', password: 'siswa123', role: 2 },
+                { username: '54321', password: 'guru123', role: 3 }
+            ];
+
+            // Data siswa contoh
+            dataSiswa = [
+                { nik: '12345', nama: 'Budi Santoso', kelas: '12 IPA', alamat: 'Jl. Merdeka No. 1', telp: '081234567890' },
+                { nik: '12346', nama: 'Ani Wulandari', kelas: '11 IPS', alamat: 'Jl. Sudirman No. 2', telp: '081234567891' }
+            ];
+
+            // Data pengajar contoh
+            dataPengajar = [
+                { nik: '54321', nama: 'Dr. Ahmad Rizki', mapel: 'Matematika', jadwal: 'Senin-Rabu', alamat: 'Jl. Pendidikan No. 5', telp: '082134567890' },
+                { nik: '54322', nama: 'Dra. Siti Nurhaliza', mapel: 'Bahasa Indonesia', jadwal: 'Selasa-Kamis', alamat: 'Jl. Guru No. 3', telp: '082134567891' }
+            ];
+
+            // Data jadwal contoh
+            dataJadwal = [
+                { id: 'J001', hari: 'Senin', jam: '08:00', mapel: 'Matematika', pengajarNIK: '54321', kelas: '12 IPA' },
+                { id: 'J002', hari: 'Selasa', jam: '10:00', mapel: 'Bahasa Indonesia', pengajarNIK: '54322', kelas: '11 IPS' }
+            ];
+
+            // Data nilai contoh
+            dataNilai = [
+                { nik: '12345', mapel: 'Matematika', nilai: 85, tanggal: '2025-01-01' },
+                { nik: '12346', mapel: 'Bahasa Indonesia', nilai: 90, tanggal: '2025-01-02' }
+            ];
+
+            // Data absensi contoh
+            dataAbsensi = [
+                { nik: '12345', tanggal: '2025-01-01', status: 'H' },
+                { nik: '12345', tanggal: '2025-01-02', status: 'H' },
+                { nik: '12346', tanggal: '2025-01-01', status: 'I' }
+            ];
+
+            // Data keuangan contoh
+            dataKeuangan = [
+                { id: 'T001', nik: '12345', jenis: 'SPP', jumlah: 500000, tanggal: '2025-01-01', status: 'Lunas' },
+                { id: 'T002', nik: '12346', jenis: 'Modul', jumlah: 150000, tanggal: '2025-01-02', status: 'Belum_Lunas' }
+            ];
+        }
+
+        // Helper functions
+        function showMenu(menuId) {
+            document.querySelectorAll('.menu-card').forEach(card => {
+                card.classList.remove('active');
+            });
+            document.getElementById(menuId).classList.add('active');
+            clearAlert();
+        }
+
+        function showAlert(message, type = 'success') {
+            const alertContainer = document.getElementById('alertContainer');
+            const alertClass = type === 'success' ? 'alert-success' : type === 'error' ? 'alert-error' : 'alert-info';
+            alertContainer.innerHTML = `<div class="alert ${alertClass}">${message}</div>`;
+            setTimeout(() => clearAlert(), 5000);
+        }
+
+        function clearAlert() {
+            document.getElementById('alertContainer').innerHTML = '';
+        }
+
+        function logout() {
+            currentUser = null;
+            currentRole = null;
+            showAlert('Logout berhasil!', 'info');
+            showMenu('mainMenu');
+        }
+
+        // Register
+        document.getElementById('registerForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const username = document.getElementById('regUsername').value;
+            const password = document.getElementById('regPassword').value;
+            const role = parseInt(document.getElementById('regRole').value);
+
+            if (dataAkun.find(a => a.username === username)) {
+                showAlert('Username sudah terdaftar!', 'error');
+                return;
+            }
+
+            dataAkun.push({ username, password, role });
+            showAlert('Registrasi berhasil! Silakan login.');
+            document.getElementById('registerForm').reset();
+            showMenu('loginMenu');
+        });
+
+        // Login
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const username = document.getElementById('loginUsername').value;
+            const password = document.getElementById('loginPassword').value;
+
+            const akun = dataAkun.find(a => a.username === username && a.password === password);
+
+            if (!akun) {
+                showAlert('Username atau password salah!', 'error');
+                return;
+            }
+
+            currentUser = username;
+            currentRole = akun.role;
+
+            if (akun.role === 1) {
+                document.getElementById('adminUsername').textContent = username;
+                showMenu('adminMenu');
+            } else if (akun.role === 2) {
+                document.getElementById('siswaUsername').textContent = username;
+                showMenu('siswaMenu');
+            } else if (akun.role === 3) {
+                document.getElementById('pengajarUsername').textContent = username;
+                showMenu('pengajarMenu');
+            }
+
+            showAlert(`Login berhasil sebagai ${akun.role === 1 ? 'Admin' : akun.role === 2 ? 'Siswa' : 'Pengajar'}`);
+            document.getElementById('loginForm').reset();
+        });
+
+        // ===== FUNGSI SISWA =====
+
+        // Tambah Siswa
+        document.getElementById('tambahSiswaForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const nik = document.getElementById('siswaNIK').value;
+            const nama = document.getElementById('siswaNama').value;
+            const kelas = document.getElementById('siswaKelas').value;
+            const alamat = document.getElementById('siswaAlamat').value;
+            const telp = document.getElementById('siswaTelp').value;
+
+            if (dataSiswa.find(s => s.nik === nik)) {
+                showAlert('NIK sudah terdaftar!', 'error');
+                return;
+            }
+
+            dataSiswa.push({ nik, nama, kelas, alamat, telp });
+            showAlert('Siswa berhasil ditambahkan!');
+            document.getElementById('tambahSiswaForm').reset();
+            showMenu('manajemenSiswaMenu');
+        });
+
+        // Lihat Daftar Siswa
+        function lihatDaftarSiswa() {
+            const content = document.getElementById('siswaAdminContent');
+            if (dataSiswa.length === 0) {
+                content.innerHTML = '<div class="alert alert-info">Belum ada data siswa.</div>';
+                return;
+            }
+
+            let html = '<div class="table-container"><table><thead><tr><th>NIK</th><th>Nama</th><th>Kelas</th><th>Alamat</th><th>No. Telp</th></tr></thead><tbody>';
+            dataSiswa.forEach(s => {
+                html += `<tr><td>${s.nik}</td><td>${s.nama}</td><td>${s.kelas}</td><td>${s.alamat}</td><td>${s.telp}</td></tr>`;
+            });
+            html += '</tbody></table></div>';
+            content.innerHTML = html;
+        }
+
+        // Edit Siswa
+        function cariSiswaEdit() {
+            const nik = document.getElementById('editSiswaSearchNIK').value;
+            const siswa = dataSiswa.find(s => s.nik === nik);
+
+            if (!siswa) {
+                showAlert('Siswa tidak ditemukan!', 'error');
+                return;
+            }
+
+            document.getElementById('editSiswaFields').style.display = 'block';
+            document.getElementById('editSiswaNama').value = siswa.nama;
+            document.getElementById('editSiswaKelas').value = siswa.kelas;
+            document.getElementById('editSiswaAlamat').value = siswa.alamat;
+            document.getElementById('editSiswaTelp').value = siswa.telp;
+        }
+
+        document.getElementById('editSiswaForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const nik = document.getElementById('editSiswaSearchNIK').value;
+            const siswa = dataSiswa.find(s => s.nik === nik);
+
+            if (!siswa) return;
+
+            const nama = document.getElementById('editSiswaNama').value;
+            const kelas = document.getElementById('editSiswaKelas').value;
+            const alamat = document.getElementById('editSiswaAlamat').value;
+            const telp = document.getElementById('editSiswaTelp').value;
+
+            if (nama !== '-') siswa.nama = nama;
+            if (kelas !== '-') siswa.kelas = kelas;
+            if (alamat !== '-') siswa.alamat = alamat;
+            if (telp !== '0' && telp !== '') siswa.telp = telp;
+
+            showAlert('Data siswa berhasil diperbarui!');
+            document.getElementById('editSiswaForm').reset();
+            document.getElementById('editSiswaFields').style.display = 'none';
+            showMenu('manajemenSiswaMenu');
+        });
+
+        // Hapus Siswa
+        document.getElementById('hapusSiswaForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const nik = document.getElementById('hapusSiswaNIK').value;
+            const index = dataSiswa.findIndex(s => s.nik === nik);
+
+            if (index === -1) {
+                showAlert('Siswa tidak ditemukan!', 'error');
+                return;
+            }
+
+            if (confirm(`Yakin ingin menghapus siswa dengan NIK ${nik}?`)) {
+                dataSiswa.splice(index, 1);
+                showAlert('Siswa berhasil dihapus!');
+                document.getElementById('hapusSiswaForm').reset();
+                showMenu('manajemenSiswaMenu');
+            }
+        });
+
+        // Cari Siswa
+        document.getElementById('cariSiswaForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const nik = document.getElementById('cariSiswaNIK').value;
+            const siswa = dataSiswa.find(s => s.nik === nik);
+            const result = document.getElementById('cariSiswaResult');
+
+            if (!siswa) {
+                result.innerHTML = '<div class="alert alert-error">Siswa tidak ditemukan!</div>';
+                return;
+            }
+
+            result.innerHTML = `
+                <div class="card">
+                    <h3>Data Siswa Ditemukan:</h3>
+                    <p><strong>NIK:</strong> ${siswa.nik}</p>
+                    <p><strong>Nama:</strong> ${siswa.nama}</p>
+                    <p><strong>Kelas:</strong> ${siswa.kelas}</p>
+                    <p><strong>Alamat:</strong> ${siswa.alamat}</p>
+                    <p><strong>No. Telp:</strong> ${siswa.telp}</p>
+                </div>
+            `;
+        });
+
+        // ===== FUNGSI PENGAJAR =====
+
+        // Tambah Pengajar
+        document.getElementById('tambahPengajarForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const nik = document.getElementById('pengajarNIK').value;
+            const nama = document.getElementById('pengajarNama').value;
+            const mapel = document.getElementById('pengajarMapel').value;
+            const jadwal = document.getElementById('pengajarJadwal').value;
+            const alamat = document.getElementById('pengajarAlamat').value;
+            const telp = document.getElementById('pengajarTelp').value;
+
+            if (dataPengajar.find(p => p.nik === nik)) {
+                showAlert('NIK pengajar sudah terdaftar!', 'error');
+                return;
+            }
+
+            dataPengajar.push({ nik, nama, mapel, jadwal, alamat, telp });
+            showAlert('Pengajar berhasil ditambahkan!');
+            document.getElementById('tambahPengajarForm').reset();
+            showMenu('manajemenPengajarMenu');
+        });
+
+        // Lihat Daftar Pengajar
+        function lihatDaftarPengajar() {
+            const content = document.getElementById('pengajarAdminContent');
+            if (dataPengajar.length === 0) {
+                content.innerHTML = '<div class="alert alert-info">Belum ada data pengajar.</div>';
+                return;
+            }
+
+            let html = '<div class="table-container"><table><thead><tr><th>NIK</th><th>Nama</th><th>Mapel</th><th>Jadwal</th><th>Alamat</th><th>No. Telp</th></tr></thead><tbody>';
+            dataPengajar.forEach(p => {
+                html += `<tr><td>${p.nik}</td><td>${p.nama}</td><td>${p.mapel}</td><td>${p.jadwal}</td><td>${p.alamat}</td><td>${p.telp}</td></tr>`;
+            });
+            html += '</tbody></table></div>';
+            content.innerHTML = html;
+        }
+
+        // Cari Pengajar
+        document.getElementById('cariPengajarForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const mapel = document.getElementById('cariPengajarMapel').value;
+            const pengajars = dataPengajar.filter(p => p.mapel.toLowerCase().includes(mapel.toLowerCase()));
+            const result = document.getElementById('cariPengajarResult');
+
+            if (pengajars.length === 0) {
+                result.innerHTML = '<div class="alert alert-info">Tidak ada pengajar untuk mata pelajaran tersebut.</div>';
+                return;
+            }
+
+            let html = '<div class="card"><h3>Pengajar Ditemukan:</h3><ul style="line-height: 2;">';
+            pengajars.forEach(p => {
+                html += `<li><strong>${p.nama}</strong> (NIK: ${p.nik}, Telp: ${p.telp})</li>`;
+            });
+            html += '</ul></div>';
+            result.innerHTML = html;
+        });
+
+        // ===== FUNGSI JADWAL =====
+
+        // Tambah Jadwal
+        document.getElementById('tambahJadwalForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const id = document.getElementById('jadwalID').value;
+            const hari = document.getElementById('jadwalHari').value;
+            const jam = document.getElementById('jadwalJam').value;
+            const mapel = document.getElementById('jadwalMapel').value;
+            const pengajarNIK = document.getElementById('jadwalPengajarNIK').value;
+            const kelas = document.getElementById('jadwalKelas').value;
+
+            if (dataJadwal.find(j => j.id === id)) {
+                showAlert('ID Jadwal sudah ada!', 'error');
+                return;
+            }
+
+            dataJadwal.push({ id, hari, jam, mapel, pengajarNIK, kelas });
+            showAlert('Jadwal berhasil ditambahkan!');
+            document.getElementById('tambahJadwalForm').reset();
+            showMenu('manajemenJadwalMenu');
+        });
+
+        // Lihat Semua Jadwal
+        function lihatSemuaJadwal() {
+            const content = document.getElementById('jadwalAdminContent');
+            if (dataJadwal.length === 0) {
+                content.innerHTML = '<div class="alert alert-info">Belum ada jadwal.</div>';
+                return;
+            }
+
+            let html = '<div class="table-container"><table><thead><tr><th>ID</th><th>Hari</th><th>Jam</th><th>Mapel</th><th>NIK Pengajar</th><th>Kelas</th></tr></thead><tbody>';
+            dataJadwal.forEach(j => {
+                html += `<tr><td>${j.id}</td><td>${j.hari}</td><td>${j.jam}</td><td>${j.mapel}</td><td>${j.pengajarNIK}</td><td>${j.kelas}</td></tr>`;
+            });
+            html += '</tbody></table></div>';
+            content.innerHTML = html;
+        }
+
+        // Cari Jadwal
+        document.getElementById('cariJadwalForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const id = document.getElementById('cariJadwalID').value;
+            const jadwal = dataJadwal.find(j => j.id === id);
+            const result = document.getElementById('cariJadwalResult');
+
+            if (!jadwal) {
+                result.innerHTML = '<div class="alert alert-error">Jadwal tidak ditemukan!</div>';
+                return;
+            }
+
+            result.innerHTML = `
+                <div class="card">
+                    <h3>Jadwal Ditemukan:</h3>
+                    <p><strong>ID:</strong> ${jadwal.id}</p>
+                    <p><strong>Hari:</strong> ${jadwal.hari}</p>
+                    <p><strong>Jam:</strong> ${jadwal.jam}</p>
+                    <p><strong>Mapel:</strong> ${jadwal.mapel}</p>
+                    <p><strong>NIK Pengajar:</strong> ${jadwal.pengajarNIK}</p>
+                    <p><strong>Kelas:</strong> ${jadwal.kelas}</p>
+                </div>
+            `;
+        });
+
+        // ===== FUNGSI NILAI =====
+
+        // Tambah Nilai
+        document.getElementById('tambahNilaiForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const nik = document.getElementById('nilaiSiswaNIK').value;
+            const mapel = document.getElementById('nilaiMapel').value;
+            const nilai = parseInt(document.getElementById('nilaiAngka').value);
+            const tanggal = document.getElementById('nilaiTanggal').value;
+
+            if (!dataSiswa.find(s => s.nik === nik)) {
+                showAlert('Siswa tidak ditemukan!', 'error');
+                return;
+            }
+
+            if (nilai < 0 || nilai > 100) {
+                showAlert('Nilai harus antara 0-100!', 'error');
+                return;
+            }
+
+            dataNilai.push({ nik, mapel, nilai, tanggal });
+            showAlert('Nilai berhasil ditambahkan!');
+            document.getElementById('tambahNilaiForm').reset();
+            showMenu('manajemenNilaiMenu');
+        });
+
+        // Lihat Semua Nilai
+        function lihatSemuaNilai() {
+            const content = document.getElementById('nilaiAdminContent');
+            if (dataNilai.length === 0) {
+                content.innerHTML = '<div class="alert alert-info">Belum ada data nilai.</div>';
+                return;
+            }
+
+            let html = '<div class="table-container"><table><thead><tr><th>NIK</th><th>Mapel</th><th>Nilai</th><th>Tanggal</th></tr></thead><tbody>';
+            dataNilai.forEach(n => {
+                html += `<tr><td>${n.nik}</td><td>${n.mapel}</td><td>${n.nilai}</td><td>${n.tanggal}</td></tr>`;
+            });
+            html += '</tbody></table></div>';
+            content.innerHTML = html;
+        }
+
+        // Evaluasi per Mapel
+        document.getElementById('evaluasiMapelForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const mapel = document.getElementById('evaluasiMapel').value;
+            const nilaiMapel = dataNilai.filter(n => n.mapel.toLowerCase() === mapel.toLowerCase());
+            const result = document.getElementById('evaluasiMapelResult');
+
+            if (nilaiMapel.length === 0) {
+                result.innerHTML = '<div class="alert alert-info">Tidak ada nilai untuk mapel tersebut.</div>';
+                return;
+            }
+
+            const total = nilaiMapel.reduce((sum, n) => sum + n.nilai, 0);
+            const count = nilaiMapel.length;
+            const rataRata = (total / count).toFixed(2);
+            const maxNilai = Math.max(...nilaiMapel.map(n => n.nilai));
+            const minNilai = Math.min(...nilaiMapel.map(n => n.nilai));
+
+            result.innerHTML = `
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <h4>${count}</h4>
+                        <p>Jumlah Siswa</p>
+                    </div>
+                    <div class="stat-card">
+                        <h4>${rataRata}</h4>
+                        <p>Rata-rata</p>
+                    </div>
+                    <div class="stat-card">
+                        <h4>${maxNilai}</h4>
+                        <p>Nilai Tertinggi</p>
+                    </div>
+                    <div class="stat-card">
+                        <h4>${minNilai}</h4>
+                        <p>Nilai Terendah</p>
+                    </div>
+                </div>
+            `;
+        });
+
+        // ===== FUNGSI ABSENSI =====
+
+        // Input Absensi
+        document.getElementById('inputAbsensiForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const nik = document.getElementById('absensiNIK').value;
+            const tanggal = document.getElementById('absensiTanggal').value;
+            const status = document.getElementById('absensiStatus').value;
+
+            if (!dataSiswa.find(s => s.nik === nik)) {
+                showAlert('Siswa tidak ditemukan!', 'error');
+                return;
+            }
+
+            dataAbsensi.push({ nik, tanggal, status });
+            showAlert('Absensi berhasil dicatat!');
+            document.getElementById('inputAbsensiForm').reset();
+            showMenu('manajemenAbsensiMenu');
+        });
+
+        // Lihat Semua Absensi
+        function lihatSemuaAbsensi() {
+            const content = document.getElementById('absensiAdminContent');
+            if (dataAbsensi.length === 0) {
+                content.innerHTML = '<div class="alert alert-info">Belum ada data absensi.</div>';
+                return;
+            }
+
+            let html = '<div class="table-container"><table><thead><tr><th>NIK</th><th>Tanggal</th><th>Status</th></tr></thead><tbody>';
+            dataAbsensi.forEach(a => {
+                const statusText = a.status === 'H' ? 'Hadir' : a.status === 'I' ? 'Izin' : a.status === 'S' ? 'Sakit' : 'Alpha';
+                html += `<tr><td>${a.nik}</td><td>${a.tanggal}</td><td>${statusText}</td></tr>`;
+            });
+            html += '</tbody></table></div>';
+            content.innerHTML = html;
+        }
+
+        // Laporan Bulanan
+        document.getElementById('laporanBulananForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const bulan = document.getElementById('laporanBulan').value;
+            const tahun = document.getElementById('laporanTahun').value;
+            const result = document.getElementById('laporanBulananResult');
+
+            const absensiFiltered = dataAbsensi.filter(a => {
+                const tgl = a.tanggal.split('-');
+                return tgl[0] === tahun && tgl[1] === bulan;
+            });
+
+            if (absensiFiltered.length === 0) {
+                result.innerHTML = '<div class="alert alert-info">Tidak ada data absensi pada bulan tersebut.</div>';
+                return;
+            }
+
+            let html = '<div class="table-container"><table><thead><tr><th>NIK</th><th>Tanggal</th><th>Status</th></tr></thead><tbody>';
+            absensiFiltered.forEach(a => {
+                const statusText = a.status === 'H' ? 'Hadir' : a.status === 'I' ? 'Izin' : a.status === 'S' ? 'Sakit' : 'Alpha';
+                html += `<tr><td>${a.nik}</td><td>${a.tanggal}</td><td>${statusText}</td></tr>`;
+            });
+            html += '</tbody></table></div>';
+            result.innerHTML = html;
+        });
+
+        // Persentase Kehadiran
+        document.getElementById('persentaseKehadiranForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const nik = document.getElementById('persentaseNIK').value;
+            const result = document.getElementById('persentaseKehadiranResult');
+
+            const absensiSiswa = dataAbsensi.filter(a => a.nik === nik);
+
+            if (absensiSiswa.length === 0) {
+                result.innerHTML = '<div class="alert alert-info">Tidak ada data absensi untuk siswa tersebut.</div>';
+                return;
+            }
+
+            const total = absensiSiswa.length;
+            const hadir = absensiSiswa.filter(a => a.status === 'H').length;
+            const persentase = ((hadir / total) * 100).toFixed(2);
+
+            result.innerHTML = `
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <h4>${total}</h4>
+                        <p>Total Pertemuan</p>
+                    </div>
+                    <div class="stat-card">
+                        <h4>${hadir}</h4>
+                        <p>Total Hadir</p>
+                    </div>
+                    <div class="stat-card">
+                        <h4>${persentase}%</h4>
+                        <p>Persentase Kehadiran</p>
+                    </div>
+                </div>
+            `;
+        });
+
+        // ===== FUNGSI KEUANGAN =====
+
+        // Tambah Pembayaran
+        document.getElementById('tambahPembayaranForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const id = document.getElementById('pembayaranID').value;
+            const nik = document.getElementById('pembayaranNIK').value;
+            const jenis = document.getElementById('pembayaranJenis').value;
+            const jumlah = parseInt(document.getElementById('pembayaranJumlah').value);
+            const tanggal = document.getElementById('pembayaranTanggal').value;
+            const status = document.getElementById('pembayaranStatus').value;
+
+            if (dataKeuangan.find(k => k.id === id)) {
+                showAlert('ID Transaksi sudah ada!', 'error');
+                return;
+            }
+
+            if (!dataSiswa.find(s => s.nik === nik)) {
+                showAlert('Siswa tidak ditemukan!', 'error');
+                return;
+            }
+
+            dataKeuangan.push({ id, nik, jenis, jumlah, tanggal, status });
+            showAlert('Pembayaran berhasil ditambahkan!');
+            document.getElementById('tambahPembayaranForm').reset();
+            showMenu('manajemenKeuanganMenu');
+        });
+
+        // Lihat Daftar Pembayaran
+        function lihatDaftarPembayaran() {
+            const content = document.getElementById('keuanganAdminContent');
+            if (dataKeuangan.length === 0) {
+                content.innerHTML = '<div class="alert alert-info">Belum ada data pembayaran.</div>';
+                return;
+            }
+
+            let html = '<div class="table-container"><table><thead><tr><th>ID</th><th>NIK</th><th>Jenis</th><th>Jumlah</th><th>Tanggal</th><th>Status</th></tr></thead><tbody>';
+            dataKeuangan.forEach(k => {
+                html += `<tr><td>${k.id}</td><td>${k.nik}</td><td>${k.jenis}</td><td>Rp ${k.jumlah.toLocaleString()}</td><td>${k.tanggal}</td><td>${k.status}</td></tr>`;
+            });
+            html += '</tbody></table></div>';
+            content.innerHTML = html;
+        }
+
+        // Laporan Keuangan Siswa
+        document.getElementById('laporanKeuanganSiswaForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const nik = document.getElementById('laporanKeuanganNIK').value;
+            const result = document.getElementById('laporanKeuanganSiswaResult');
+
+            if (!dataSiswa.find(s => s.nik === nik)) {
+                result.innerHTML = '<div class="alert alert-error">Siswa tidak ditemukan!</div>';
+                return;
+            }
+
+            const keuanganSiswa = dataKeuangan.filter(k => k.nik === nik);
+
+            if (keuanganSiswa.length === 0) {
+                result.innerHTML = '<div class="alert alert-info">Tidak ada transaksi untuk siswa ini.</div>';
+                return;
+            }
+
+            const total = keuanganSiswa.reduce((sum, k) => sum + k.jumlah, 0);
+            const lunas = keuanganSiswa.filter(k => k.status === 'Lunas').length;
+            const belum = keuanganSiswa.filter(k => k.status === 'Belum_Lunas').length;
+
+            let html = '<div class="table-container"><table><thead><tr><th>ID</th><th>Jenis</th><th>Jumlah</th><th>Tanggal</th><th>Status</th></tr></thead><tbody>';
+            keuanganSiswa.forEach(k => {
+                html += `<tr><td>${k.id}</td><td>${k.jenis}</td><td>Rp ${k.jumlah.toLocaleString()}</td><td>${k.tanggal}</td><td>${k.status}</td></tr>`;
+            });
+            html += '</tbody></table></div>';
+
+            html += `
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <h4>Rp ${total.toLocaleString()}</h4>
+                        <p>Total Transaksi</p>
+                    </div>
+                    <div class="stat-card">
+                        <h4>${lunas}</h4>
+                        <p>Lunas</p>
+                    </div>
+                    <div class="stat-card">
+                        <h4>${belum}</h4>
+                        <p>Belum Lunas</p>
+                    </div>
+                </div>
+            `;
+
+            result.innerHTML = html;
+        });
+
+        // Update Status Pembayaran
+        document.getElementById('updateStatusPembayaranForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const id = document.getElementById('updatePembayaranID').value;
+            const status = document.getElementById('updatePembayaranStatus').value;
+            const keuangan = dataKeuangan.find(k => k.id === id);
+
+            if (!keuangan) {
+                showAlert('Transaksi tidak ditemukan!', 'error');
+                return;
+            }
+
+            keuangan.status = status;
+            showAlert('Status pembayaran berhasil diperbarui!');
+            document.getElementById('updateStatusPembayaranForm').reset();
+            showMenu('manajemenKeuanganMenu');
+        });
+
+        // ===== FUNGSI LAPORAN =====
+
+        function laporanDataSiswa() {
+            const content = document.getElementById('laporanContent');
+            lihatDaftarSiswa();
+            const siswaContent = document.getElementById('siswaAdminContent').innerHTML;
+            content.innerHTML = '<h3>Laporan Data Siswa</h3>' + siswaContent;
+        }
+
+        function laporanDataPengajar() {
+            const content = document.getElementById('laporanContent');
+            lihatDaftarPengajar();
+            const pengajarContent = document.getElementById('pengajarAdminContent').innerHTML;
+            content.innerHTML = '<h3>Laporan Data Pengajar</h3>' + pengajarContent;
+        }
+
+        function laporanDataNilai() {
+            const content = document.getElementById('laporanContent');
+            lihatSemuaNilai();
+            const nilaiContent = document.getElementById('nilaiAdminContent').innerHTML;
+            content.innerHTML = '<h3>Laporan Data Nilai</h3>' + nilaiContent;
+        }
+
+        function laporanDataKehadiran() {
+            const content = document.getElementById('laporanContent');
+            lihatSemuaAbsensi();
+            const absensiContent = document.getElementById('absensiAdminContent').innerHTML;
+            content.innerHTML = '<h3>Laporan Data Kehadiran</h3>' + absensiContent;
+        }
+
+        function eksporSemuaLaporan() {
+            let laporan = '===== LAPORAN SEMUA DATA BIMBINGAN BELAJAR =====\n\n';
+            
+            laporan += '===== DATA SISWA =====\n';
+            if (dataSiswa.length === 0) {
+                laporan += 'Tidak ada data siswa.\n';
+            } else {
+                dataSiswa.forEach(s => {
+                    laporan += `${s.nik} | ${s.nama} | ${s.kelas} | ${s.alamat} | ${s.telp}\n`;
+                });
+            }
+
+            laporan += '\n===== DATA PENGAJAR =====\n';
+            if (dataPengajar.length === 0) {
+                laporan += 'Tidak ada data pengajar.\n';
+            } else {
+                dataPengajar.forEach(p => {
+                    laporan += `${p.nik} | ${p.nama} | ${p.mapel} | ${p.jadwal} | ${p.alamat} | ${p.telp}\n`;
+                });
+            }
+
+            laporan += '\n===== DATA NILAI =====\n';
+            if (dataNilai.length === 0) {
+                laporan += 'Tidak ada data nilai.\n';
+            } else {
+                dataNilai.forEach(n => {
+                    laporan += `${n.nik} | ${n.mapel} | ${n.nilai} | ${n.tanggal}\n`;
+                });
+            }
+
+            laporan += '\n===== DATA ABSENSI =====\n';
+            if (dataAbsensi.length === 0) {
+                laporan += 'Tidak ada data absensi.\n';
+            } else {
+                dataAbsensi.forEach(a => {
+                    laporan += `${a.nik} | ${a.tanggal} | ${a.status}\n`;
+                });
+            }
+
+            laporan += '\n===== DATA KEUANGAN =====\n';
+            if (dataKeuangan.length === 0) {
+                laporan += 'Tidak ada data keuangan.\n';
+            } else {
+                dataKeuangan.forEach(k => {
+                    laporan += `${k.id} | ${k.nik} | ${k.jenis} | ${k.jumlah} | ${k.tanggal} | ${k.status}\n`;
+                });
+            }
+
+            // Download sebagai file txt
+            const blob = new Blob([laporan], { type: 'text/plain' });
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'rekap_semua_laporan.txt';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            window.URL.revokeObjectURL(url);
+
+            showAlert('Laporan berhasil diekspor!');
+        }
+
+        // ===== FUNGSI BACKUP =====
+
+        function backupSemuaData() {
+            const timestamp = new Date().toISOString().replace(/[-:.]/g, '').slice(0, 14);
+            
+            const backupData = {
+                timestamp: timestamp,
+                akun: dataAkun,
+                siswa: dataSiswa,
+                pengajar: dataPengajar,
+                jadwal: dataJadwal,
+                nilai: dataNilai,
+                absensi: dataAbsensi,
+                keuangan: dataKeuangan
+            };
+
+            const blob = new Blob([JSON.stringify(backupData, null, 2)], { type: 'application/json' });
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `backup_${timestamp}.json`;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            window.URL.revokeObjectURL(url);
+
+            const content = document.getElementById('backupContent');
+            content.innerHTML = `
+                <div class="alert alert-success">
+                    <strong>Backup Berhasil!</strong><br>
+                    File: backup_${timestamp}.json<br>
+                    Semua data telah berhasil di-backup.
+                </div>
+            `;
+        }
+
+        // ===== FUNGSI SISWA MENU =====
+
+        function lihatProfilSiswa() {
+            const nik = currentUser;
+            let siswa = dataSiswa.find(s => s.nik === nik);
+            
+            // Jika tidak ketemu dengan NIK, coba cari dengan nama
+            if (!siswa) {
+                siswa = dataSiswa.find(s => s.nama === nik);
+            }
+
+            const content = document.getElementById('siswaContent');
+
+            if (!siswa) {
+                content.innerHTML = '<div class="alert alert-error">Data profil tidak ditemukan!</div>';
+                return;
+            }
+
+            content.innerHTML = `
+                <div class="card">
+                    <h3>Profil Saya</h3>
+                    <p><strong>NIK:</strong> ${siswa.nik}</p>
+                    <p><strong>Nama:</strong> ${siswa.nama}</p>
+                    <p><strong>Kelas:</strong> ${siswa.kelas}</p>
+                    <p><strong>Alamat:</strong> ${siswa.alamat}</p>
+                    <p><strong>No. Telp:</strong> ${siswa.telp}</p>
+                </div>
+            `;
+        }
+
+        function lihatJadwalSiswa() {
+            const nik = currentUser;
+            let siswa = dataSiswa.find(s => s.nik === nik);
+            
+            if (!siswa) {
+                siswa = dataSiswa.find(s => s.nama === nik);
+            }
+
+            const content = document.getElementById('siswaContent');
+
+            if (!siswa) {
+                content.innerHTML = '<div class="alert alert-error">Data siswa tidak ditemukan!</div>';
+                return;
+            }
+
+            const jadwalKelas = dataJadwal.filter(j => j.kelas === siswa.kelas);
+
+            if (jadwalKelas.length === 0) {
+                content.innerHTML = '<div class="alert alert-info">Tidak ada jadwal untuk kelas Anda.</div>';
+                return;
+            }
+
+            let html = '<div class="card"><h3>Jadwal Bimbingan Saya</h3></div>';
+            html += '<div class="table-container"><table><thead><tr><th>ID</th><th>Hari</th><th>Jam</th><th>Mapel</th><th>Pengajar</th></tr></thead><tbody>';
+            jadwalKelas.forEach(j => {
+                const pengajar = dataPengajar.find(p => p.nik === j.pengajarNIK);
+                const namaPengajar = pengajar ? pengajar.nama : j.pengajarNIK;
+                html += `<tr><td>${j.id}</td><td>${j.hari}</td><td>${j.jam}</td><td>${j.mapel}</td><td>${namaPengajar}</td></tr>`;
+            });
+            html += '</tbody></table></div>';
+            content.innerHTML = html;
+        }
+
+        function lihatNilaiSiswa() {
+            const nik = currentUser;
+            let nikAsli = nik;
+            
+            const siswa = dataSiswa.find(s => s.nik === nik || s.nama === nik);
+            if (siswa) {
+                nikAsli = siswa.nik;
+            }
+
+            const content = document.getElementById('siswaContent');
+            const nilaiSiswa = dataNilai.filter(n => n.nik === nikAsli);
+
+            if (nilaiSiswa.length === 0) {
+                content.innerHTML = '<div class="alert alert-info">Belum ada nilai untuk Anda.</div>';
+                return;
+            }
+
+            let html = '<div class="card"><h3>Nilai Saya</h3></div>';
+            html += '<div class="table-container"><table><thead><tr><th>Mapel</th><th>Nilai</th><th>Tanggal</th></tr></thead><tbody>';
+            nilaiSiswa.forEach(n => {
+                html += `<tr><td>${n.mapel}</td><td>${n.nilai}</td><td>${n.tanggal}</td></tr>`;
+            });
+            html += '</tbody></table></div>';
+            content.innerHTML = html;
+        }
+
+        function lihatAbsensiSiswa() {
+            const nik = currentUser;
+            let nikAsli = nik;
+            
+            const siswa = dataSiswa.find(s => s.nik === nik || s.nama === nik);
+            if (siswa) {
+                nikAsli = siswa.nik;
+            }
+
+            const content = document.getElementById('siswaContent');
+            const absensiSiswa = dataAbsensi.filter(a => a.nik === nikAsli);
+
+            if (absensiSiswa.length === 0) {
+                content.innerHTML = '<div class="alert alert-info">Belum ada absensi untuk Anda.</div>';
+                return;
+            }
+
+            let html = '<div class="card"><h3>Absensi Saya</h3></div>';
+            html += '<div class="table-container"><table><thead><tr><th>Tanggal</th><th>Status</th></tr></thead><tbody>';
+            absensiSiswa.forEach(a => {
+                const statusText = a.status === 'H' ? 'Hadir' : a.status === 'I' ? 'Izin' : a.status === 'S' ? 'Sakit' : 'Alpha';
+                html += `<tr><td>${a.tanggal}</td><td>${statusText}</td></tr>`;
+            });
+            html += '</tbody></table></div>';
+            content.innerHTML = html;
+        }
+
+        function lihatPembayaranSiswa() {
+            const nik = currentUser;
+            let nikAsli = nik;
+            
+            const siswa = dataSiswa.find(s => s.nik === nik || s.nama === nik);
+            if (siswa) {
+                nikAsli = siswa.nik;
+            }
+
+            const content = document.getElementById('siswaContent');
+            const pembayaranSiswa = dataKeuangan.filter(k => k.nik === nikAsli);
+
+            if (pembayaranSiswa.length === 0) {
+                content.innerHTML = '<div class="alert alert-info">Belum ada transaksi pembayaran.</div>';
+                return;
+            }
+
+            let html = '<div class="card"><h3>Status Pembayaran Saya</h3></div>';
+            html += '<div class="table-container"><table><thead><tr><th>ID</th><th>Jenis</th><th>Jumlah</th><th>Tanggal</th><th>Status</th></tr></thead><tbody>';
+            pembayaranSiswa.forEach(k => {
+                html += `<tr><td>${k.id}</td><td>${k.jenis}</td><td>Rp ${k.jumlah.toLocaleString()}</td><td>${k.tanggal}</td><td>${k.status}</td></tr>`;
+            });
+            html += '</tbody></table></div>';
+            content.innerHTML = html;
+        }
+
+        // ===== FUNGSI PENGAJAR MENU =====
+
+        function lihatProfilPengajar() {
+            const nik = currentUser;
+            let pengajar = dataPengajar.find(p => p.nik === nik);
+            
+            if (!pengajar) {
+                pengajar = dataPengajar.find(p => p.nama === nik);
+            }
+
+            const content = document.getElementById('pengajarContent');
+
+            if (!pengajar) {
+                content.innerHTML = '<div class="alert alert-error">Data profil tidak ditemukan!</div>';
+                return;
+            }
+
+            content.innerHTML = `
+                <div class="card">
+                    <h3>Profil Saya</h3>
+                    <p><strong>NIK:</strong> ${pengajar.nik}</p>
+                    <p><strong>Nama:</strong> ${pengajar.nama}</p>
+                    <p><strong>Mata Pelajaran:</strong> ${pengajar.mapel}</p>
+                    <p><strong>Jadwal:</strong> ${pengajar.jadwal}</p>
+                    <p><strong>Alamat:</strong> ${pengajar.alamat}</p>
+                    <p><strong>No. Telp:</strong> ${pengajar.telp}</p>
+                </div>
+            `;
+        }
+
+        function lihatJadwalPengajar() {
+            const nik = currentUser;
+            let pengajar = dataPengajar.find(p => p.nik === nik);
+            
+            if (!pengajar) {
+                pengajar = dataPengajar.find(p => p.nama === nik);
+            }
+
+            const content = document.getElementById('pengajarContent');
+
+            if (!pengajar) {
+                content.innerHTML = '<div class="alert alert-error">Data pengajar tidak ditemukan!</div>';
+                return;
+            }
+
+            const jadwalPengajar = dataJadwal.filter(j => j.pengajarNIK === pengajar.nik);
+
+            if (jadwalPengajar.length === 0) {
+                content.innerHTML = '<div class="alert alert-info">Anda belum memiliki jadwal mengajar.</div>';
+                return;
+            }
+
+            let html = '<div class="card"><h3>Jadwal Mengajar Saya</h3></div>';
+            html += '<div class="table-container"><table><thead><tr><th>ID</th><th>Hari</th><th>Jam</th><th>Mapel</th><th>Kelas</th></tr></thead><tbody>';
+            jadwalPengajar.forEach(j => {
+                html += `<tr><td>${j.id}</td><td>${j.hari}</td><td>${j.jam}</td><td>${j.mapel}</td><td>${j.kelas}</td></tr>`;
+            });
+            html += '</tbody></table></div>';
+            content.innerHTML = html;
+        }
+
+        function lihatNilaiPengajar() {
+            const nik = currentUser;
+            let pengajar = dataPengajar.find(p => p.nik === nik);
+            
+            if (!pengajar) {
+                pengajar = dataPengajar.find(p => p.nama === nik);
+            }
+
+            const content = document.getElementById('pengajarContent');
+
+            if (!pengajar) {
+                content.innerHTML = '<div class="alert alert-error">Data pengajar tidak ditemukan!</div>';
+                return;
+            }
+
+            const nilaiPengajar = dataNilai.filter(n => n.mapel === pengajar.mapel);
+
+            if (nilaiPengajar.length === 0) {
+                content.innerHTML = `<div class="alert alert-info">Anda belum menginput nilai untuk mata pelajaran ${pengajar.mapel}.</div>`;
+                return;
+            }
+
+            let html = `<div class="card"><h3>Nilai yang Anda Berikan (${pengajar.mapel})</h3></div>`;
+            html += '<div class="table-container"><table><thead><tr><th>NIK Siswa</th><th>Mapel</th><th>Nilai</th><th>Tanggal</th></tr></thead><tbody>';
+            nilaiPengajar.forEach(n => {
+                html += `<tr><td>${n.nik}</td><td>${n.mapel}</td><td>${n.nilai}</td><td>${n.tanggal}</td></tr>`;
+            });
+            html += '</tbody></table></div>';
+            content.innerHTML = html;
+        }
+
+        // Input Nilai oleh Pengajar
+        document.getElementById('inputNilaiPengajarForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const nik = document.getElementById('nilaiPengajarNIK').value;
+            const mapel = document.getElementById('nilaiPengajarMapel').value;
+            const nilai = parseInt(document.getElementById('nilaiPengajarAngka').value);
+            const tanggal = document.getElementById('nilaiPengajarTanggal').value;
+
+            if (!dataSiswa.find(s => s.nik === nik)) {
+                showAlert('Siswa tidak ditemukan!', 'error');
+                return;
+            }
+
+            if (nilai < 0 || nilai > 100) {
+                showAlert('Nilai harus antara 0-100!', 'error');
+                return;
+            }
+
+            dataNilai.push({ nik, mapel, nilai, tanggal });
+            showAlert('Nilai berhasil disimpan!');
+            document.getElementById('inputNilaiPengajarForm').reset();
+            showMenu('pengajarMenu');
+        });
+
+        // Input Absensi oleh Pengajar
+        document.getElementById('inputAbsensiPengajarForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const nik = document.getElementById('absensiPengajarNIK').value;
+            const tanggal = document.getElementById('absensiPengajarTanggal').value;
+            const status = document.getElementById('absensiPengajarStatus').value;
+
+            if (!dataSiswa.find(s => s.nik === nik)) {
+                showAlert('Siswa tidak ditemukan!', 'error');
+                return;
+            }
+
+            dataAbsensi.push({ nik, tanggal, status });
+            showAlert('Absensi berhasil direkam!');
+            document.getElementById('inputAbsensiPengajarForm').reset();
+            showMenu('pengajarMenu');
+        });
+
+        // Initialize data saat halaman dimuat
+        window.onload = function() {
+            initializeData();
+            showAlert('Selamat datang di BIMON - Sistem Informasi Manajemen Bimbingan Belajar!', 'info');
+        };
+    </script>
+</body>
+</html>
