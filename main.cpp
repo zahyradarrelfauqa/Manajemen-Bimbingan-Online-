@@ -8,11 +8,16 @@
 
 using namespace std;
 
+void clearScreen() {
+    system("cls");
+}
+
 int main() {
     Akun akun;
     Admin admin;
     int pilihan;
 
+    clearScreen();
 	cout << endl;
     cout << "---[ SELAMAT DATANG ]---";
     cout << endl << endl;
@@ -35,7 +40,6 @@ int main() {
     	cout << endl;
         cout << "Pilihan: ";
         cin >> pilihan;
-        system("cls");
 
         switch (pilihan) {
             case 1:
@@ -47,34 +51,46 @@ int main() {
                 Role r = akun.login(uname);
 
                 if (r == ADMIN) {
+                	cout << "\n>> Login berhasil sebagai Admin.\n";
+                    cout << "Tekan Enter untuk melanjutkan...";
+                    cin.ignore();
+                    cin.get();
                     admin.menuAdmin();  
                 } 
                 else if (r == SISWA) {
-                    cout << ">> Login berhasil sebagai siswa.\n";
+                    cout << "\n>> Login berhasil sebagai Siswa.\n";
+                    cout << "Tekan Enter untuk melanjutkan...";
+                    cin.ignore();
+                    cin.get();
 				    SiswaMenu siswa(uname);
 				    siswa.menuSiswa();
                 } 
                 else if (r == PENGAJAR) {
-                    cout << "Login berhasil sebagai pengajar.\n";
+                    cout << "\n>> Login berhasil sebagai Pengajar.\n";
+                    cout << "Tekan Enter untuk melanjutkan...";
+                    cin.ignore();
+                    cin.get();
 				    PengajarMenu pg(uname);     // username digunakan untuk mencari NIK
 				    pg.menuPengajar();
                 } 
                 else {
-                    // login gagal
+                    cout << "Login gagal...\n";
                 }
                 break;
             }
 
             case 3:
-                cout << "Keluar...\n";
+                cout << "\nTerima kasih telah mengunjungi BimOn!\n";
                 break;
 
             default:
-                cout << "Pilihan tidak valid\n";
+                cout << "\nPilihan tidak valid!\n";
+                cout << "Tekan Enter untuk melanjutkan...";
+                cin.ignore();
+                cin.get();
         }
 
     } while (pilihan != 3);
 
     return 0;
 }
-
