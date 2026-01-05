@@ -176,7 +176,15 @@ void SiswaMenu::lihatJadwal() {
     string id, hari, jam, mapel, pengajarNIP, kelas;
     bool ada = false;
 
-    cout << "ID\tHari\tJam\tMapel\tPengajar\tKelas\n";
+    cout << left 
+	     << setw(6) << "ID" 
+	     << setw(10) << "Hari" 
+	     << setw(12) << "Jam" 
+	     << setw(20) << "Mapel" 
+	     << setw(15) << "Pengajar" 
+	     << setw(8) << "Kelas" 
+	     << endl;
+	cout << string(71, '-') << endl; // Garis pemisah
 
     while (getline(fj, id, '|')) {
     	getline(fj, hari, '|');
@@ -186,12 +194,14 @@ void SiswaMenu::lihatJadwal() {
         getline(fj, kelas); // Baca sampai enter
         
         if (kelas == kelasSiswa) {
-            cout << id << "\t"
-                 << hari << "\t"
-                 << jam << "\t"
-                 << mapel << "\t"
-                 << pengajarNIP << "\t"
-                 << kelas << "\n";
+           cout << left
+	             << setw(6) << id
+	             << setw(10) << hari
+	             << setw(12) << jam
+	             << setw(20) << mapel
+	             << setw(15) << pengajarNIP
+	             << setw(8) << kelas
+	             << endl;
             ada = true;
         }
     }
@@ -243,7 +253,12 @@ void SiswaMenu::lihatNilai() {
     }
 
     cout << "\n============ NILAI SAYA ============\n";
-    cout << "Mapel\t\tNilai\tTanggal\n"; // Tab disesuaikan agar rapi
+    cout << left 
+	     << setw(25) << "Mata Pelajaran" 
+	     << setw(10) << "Nilai" 
+	     << setw(15) << "Tanggal" 
+	     << endl;
+	cout << string(50, '=') << endl; // Garis pemisah
 
     string nikStr, mapel, nilaiStr, tanggal;
     bool ada = false;
@@ -259,9 +274,17 @@ void SiswaMenu::lihatNilai() {
             // Tampilkan output
             // Jika nama mapel pendek, tambah tab agar lurus
             if (mapel.length() < 8)
-                cout << mapel << "\t\t" << nilaiStr << "\t" << tanggal << "\n";
+                 cout << left
+		             << setw(25) << mapel
+		             << setw(10) << nilaiStr
+		             << setw(15) << tanggal
+		             << endl;
             else
-                cout << mapel << "\t" << nilaiStr << "\t" << tanggal << "\n";
+                 cout << left
+		             << setw(25) << mapel
+		             << setw(10) << nilaiStr
+		             << setw(15) << tanggal
+		             << endl;
             
             ada = true;
         }
@@ -372,7 +395,14 @@ void SiswaMenu::lihatStatusPembayaran() {
     }
 
     cout << "\n======= STATUS PEMBAYARAN SAYA =======\n";
-    cout << "ID\tJenis\t\tJumlah\tTanggal\t\tStatus\n";
+    cout << left 
+	     << setw(8) << "ID" 
+	     << setw(20) << "Jenis Pembayaran" 
+	     << setw(12) << "Jumlah" 
+	     << setw(15) << "Tanggal" 
+	     << setw(12) << "Status" 
+	     << endl;
+	cout << string(67, '-') << endl; // Garis pemisah
 
     string id, nikStr, jenis, jumlahStr, tanggal, status;
     bool ada = false;
@@ -388,9 +418,21 @@ void SiswaMenu::lihatStatusPembayaran() {
         if (nikStr == nikAsli) {
             // Tampilan output (sedikit formatting tab agar rapi)
             if (jenis.length() < 8)
-                cout << id << "\t" << jenis << "\t\t" << jumlahStr << "\t" << tanggal << "\t" << status << "\n";
-            else
-                cout << id << "\t" << jenis << "\t" << jumlahStr << "\t" << tanggal << "\t" << status << "\n";
+                cout << left
+		             << setw(8) << id
+		             << setw(20) << jenis
+		             << setw(12) << jumlahStr
+		             << setw(15) << tanggal
+		             << setw(12) << status
+		             << endl;
+		    else
+                cout << left
+		             << setw(8) << id
+		             << setw(20) << jenis
+		             << setw(12) << jumlahStr
+		             << setw(15) << tanggal
+		             << setw(12) << status
+		             << endl;
                 
             ada = true;
         }
