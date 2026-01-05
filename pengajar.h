@@ -5,7 +5,7 @@
 #include <fstream>
 #include <string>
 #include "kelas.h"
-
+#include "akun.h"
 using namespace std;
 
 class PengajarMenu {
@@ -22,6 +22,11 @@ public:
      ~PengajarMenu() {
         delete kelasManager;  // Hapus di destructor
     }
+    
+    void tampilkanProfilKTP() {
+	    Akun akunObj;
+	    akunObj.tampilkanProfilKTP(nikLogin);
+	}
 
     void menuPengajar();
     void lihatProfil();
@@ -42,30 +47,32 @@ void PengajarMenu::menuPengajar() {
     do {
         cout << "\n========== MENU PENGAJAR ==========\n";
         cout << "Halo, " << nikLogin << "\n";
-        cout << "1. Lihat Profil Saya\n";
-        cout << "2. Lihat Jadwal Mengajar\n";
-        cout << "3. Input Nilai Siswa\n";
-        cout << "4. Lihat Nilai yang Pernah Diberikan\n";
-        cout << "5. Input Absensi Siswa\n";
-        cout << "6. Buat Kelas Baru\n";      
-        cout << "7. Lihat Kelas Saya\n";
-        cout << "8. Logout\n";
+        cout << "1. Lihat Profil KTP Saya\n";
+        cout << "2. Lihat Profil Saya\n";
+        cout << "3. Lihat Jadwal Mengajar\n";
+        cout << "4. Input Nilai Siswa\n";
+        cout << "5. Lihat Nilai yang Pernah Diberikan\n";
+        cout << "6. Input Absensi Siswa\n";
+        cout << "7. Buat Kelas Baru\n";      
+        cout << "8. Lihat Kelas Saya\n";
+        cout << "9. Logout\n";
         cout << "Pilihan : ";
         cin >> pilih;
 
         switch (pilih) {
-            case 1: lihatProfil(); break;
-            case 2: lihatJadwalMengajar(); break;
-            case 3: inputNilai(); break;
-            case 4: lihatNilaiPengajar(); break;
-            case 5: inputAbsensi(); break;
-           case 6: buatKelas(); break;     
-            case 7: lihatKelasSaya(); break; 
-            case 8: cout << "Logout...\n"; break;
+        	case 1: tampilkanProfilKTP(); break;
+            case 2: lihatProfil(); break;
+            case 3: lihatJadwalMengajar(); break;
+            case 4: inputNilai(); break;
+            case 5: lihatNilaiPengajar(); break;
+            case 6: inputAbsensi(); break;
+            case 7: buatKelas(); break;     
+            case 8: lihatKelasSaya(); break; 
+            case 9: cout << "Logout...\n"; break;
             default: cout << "Pilihan tidak valid!\n";
         }
 
-    } while (pilih != 6);
+    } while (pilih != 9);
 }
 
 void PengajarMenu::buatKelas() {
