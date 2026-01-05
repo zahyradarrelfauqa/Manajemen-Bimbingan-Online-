@@ -5,6 +5,7 @@
 #include <fstream>
 #include <string>
 #include "kelas.h"
+#include "akun.h"
 using namespace std;
 
 class SiswaMenu {
@@ -21,6 +22,11 @@ public:
     ~SiswaMenu() {
         delete kelasManager;  // Hapus di destructor
     }
+    
+    void tampilkanProfilKTP() {
+	    Akun akunObj;
+	    akunObj.tampilkanProfilKTP(nikLogin);
+	}
 
     void menuSiswa();
 
@@ -47,13 +53,14 @@ void SiswaMenu::menuSiswa() {
 	    cout << endl;
 	    cout << "----------------------------------------";
 	    cout << endl;
-        cout << "1 >> Lihat Profil Saya\n";
-        cout << "2 >> Lihat Jadwal Bimbingan\n";
-        cout << "3 >> Lihat Nilai\n";
-        cout << "4 >> Lihat Absensi Saya\n";
-        cout << "5 >> Lihat Status Pembayaran\n";
-        cout << "6 >> Daftar Kelas Baru\n";   
-        cout << "7 >> Lihat Kelas Saya\n";
+        cout << "1 >> Lihat Profil KTP Saya\n";
+        cout << "2 >> Lihat Profil Saya\n";
+        cout << "3 >> Lihat Jadwal Bimbingan\n";
+        cout << "4 >> Lihat Nilai\n";
+        cout << "5 >> Lihat Absensi Saya\n";
+        cout << "6 >> Lihat Status Pembayaran\n";
+        cout << "7 >> Daftar Kelas Baru\n";   
+        cout << "8 >> Lihat Kelas Saya\n";
     	cout << "----------------------------------------";
     	cout << endl;
         cout << "0 >> Logout\n";
@@ -63,13 +70,14 @@ void SiswaMenu::menuSiswa() {
         cin >> pilih;
 
         switch (pilih) {
-            case 1: lihatProfil(); break;
-            case 2: lihatJadwal(); break;
-            case 3: lihatNilai(); break;
-            case 4: lihatAbsensi(); break;
-            case 5: lihatStatusPembayaran(); break;
-            case 6: daftarKelas(); break;         
-            case 7: lihatKelasSaya(); break; 
+        	case 1: tampilkanProfilKTP(); break;
+            case 2: lihatProfil(); break;
+            case 3: lihatJadwal(); break;
+            case 4: lihatNilai(); break;
+            case 5: lihatAbsensi(); break;
+            case 6: lihatStatusPembayaran(); break;
+            case 7: daftarKelas(); break;         
+            case 8: lihatKelasSaya(); break; 
             case 0: cout << "Logout...\n"; break;
 					cout << endl;
 			break;
@@ -425,4 +433,3 @@ void SiswaMenu::lihatKelasSaya() {
     kelasManager->lihatKelasSaya(stoll(nikLogin), "SISWA");
 }
 #endif
-
