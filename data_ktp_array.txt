@@ -1,0 +1,609 @@
+================================================================================
+                              DATA KTP (ARRAY)
+================================================================================
+
+Data ke-1
+----------------------------------------
+NIK               : 3174031201980001
+Nama              : Ahmad Santoso
+Tempat Lahir      : Jakarta
+Tanggal Lahir     : 12/01/1980
+Jenis Kelamin     : Laki-laki
+Gol. Darah        : A
+Alamat            : Jl. Mangga Besar VIII No. 12
+RT/RW             : 003/009
+Kelurahan         : Mangga Besar
+Kecamatan         : Taman Sari
+Kota/Kabupaten    : Jakarta Barat
+Provinsi          : DKI Jakarta
+Agama             : Islam
+Status Perkawinan : Kawin
+Pekerjaan         : Karyawan Swasta
+Kewarganegaraan   : WNI
+Berlaku Hingga    : 20-09-2060
+
+Data ke-2
+----------------------------------------
+NIK               : 3275015502880002
+Nama              : Sari Dewi Lestari
+Tempat Lahir      : Bandung
+Tanggal Lahir     : 15/02/1988
+Jenis Kelamin     : Perempuan
+Gol. Darah        : B
+Alamat            : Jl. Cihampelas No. 45
+RT/RW             : 005/002
+Kelurahan         : Cipaganti
+Kecamatan         : Coblong
+Kota/Kabupaten    : Kota Bandung
+Provinsi          : Jawa Barat
+Agama             : Islam
+Status Perkawinan : Kawin
+Pekerjaan         : Pegawai Negeri Sipil
+Kewarganegaraan   : WNI
+Berlaku Hingga    : 15-02-2048
+
+Data ke-3
+----------------------------------------
+NIK               : 3515184303970003
+Nama              : Maria Ulfa
+Tempat Lahir      : Surabaya
+Tanggal Lahir     : 03/03/1997
+Jenis Kelamin     : Perempuan
+Gol. Darah        : O
+Alamat            : Jl. Raya Darmo Permai III No. 8
+RT/RW             : 001/004
+Kelurahan         : Darmo
+Kecamatan         : Wonokromo
+Kota/Kabupaten    : Kota Surabaya
+Provinsi          : Jawa Timur
+Agama             : Katolik
+Status Perkawinan : Belum Kawin
+Pekerjaan         : Mahasiswa
+Kewarganegaraan   : WNI
+Berlaku Hingga    : 03-03-2037
+
+Data ke-4
+----------------------------------------
+NIK               : 7371132104870004
+Nama              : Budi Pratama
+Tempat Lahir      : Makassar
+Tanggal Lahir     : 21/04/1987
+Jenis Kelamin     : Laki-laki
+Gol. Darah        : AB
+Alamat            : Jl. Bawakaraeng No. 121
+RT/RW             : 002/007
+Kelurahan         : Tamalanrea Indah
+Kecamatan         : Tamalanrea
+Kota/Kabupaten    : Kota Makassar
+Provinsi          : Sulawesi Selatan
+Agama             : Kristen Protestan
+Status Perkawinan : Kawin
+Pekerjaan         : Wiraswasta
+Kewarganegaraan   : WNI
+Berlaku Hingga    : 21-04-2047
+
+Data ke-5
+----------------------------------------
+NIK               : 6472040705990005
+Nama              : Kevin Tanoto
+Tempat Lahir      : Balikpapan
+Tanggal Lahir     : 07/05/1999
+Jenis Kelamin     : Laki-laki
+Gol. Darah        : B
+Alamat            : Jl. Jend. Sudirman No. 78, Griya Loka
+RT/RW             : 004/001
+Kelurahan         : Gunung Bahagia
+Kecamatan         : Balikpapan Selatan
+Kota/Kabupaten    : Kota Balikpapan
+Provinsi          : Kalimantan Timur
+Agama             : Buddha
+Status Perkawinan : Belum Kawin
+Pekerjaan         : Freelance
+Kewarganegaraan   : WNI
+Berlaku Hingga    : 07-05-2049
+
+Data ke-6
+----------------------------------------
+NIK               : 3671013006760006
+Nama              : Hj. Aminah Fatimah
+Tempat Lahir      : Tangerang
+Tanggal Lahir     : 30/06/1976
+Jenis Kelamin     : Perempuan
+Gol. Darah        : A
+Alamat            : Jl. KH. Hasyim Ashari No. 90
+RT/RW             : 008/003
+Kelurahan         : Cimone
+Kecamatan         : Karawaci
+Kota/Kabupaten    : Kota Tangerang
+Provinsi          : Banten
+Agama             : Islam
+Status Perkawinan : Kawin
+Pekerjaan         : Ibu Rumah Tangga
+Kewarganegaraan   : WNI
+Berlaku Hingga    : SEUMUR HIDUP
+
+Data ke-7
+----------------------------------------
+NIK               : 5171011108900007
+Nama              : I Made Wirawan
+Tempat Lahir      : Denpasar
+Tanggal Lahir     : 11/08/1990
+Jenis Kelamin     : Laki-laki
+Gol. Darah        : O
+Alamat            : Jl. Tukad Pakerisan No. 17
+RT/RW             : 006/005
+Kelurahan         : Renon
+Kecamatan         : Denpasar Selatan
+Kota/Kabupaten    : Kota Denpasar
+Provinsi          : Bali
+Agama             : Hindu
+Status Perkawinan : Kawin
+Pekerjaan         : Pegawai BUMN
+Kewarganegaraan   : WNI
+Berlaku Hingga    : 11-08-2050
+
+Data ke-8
+----------------------------------------
+NIK               : 1218092501930008
+Nama              : Rahmat Hidayat
+Tempat Lahir      : Medan
+Tanggal Lahir     : 25/01/1993
+Jenis Kelamin     : Laki-laki
+Gol. Darah        : A
+Alamat            : Jl. Sisingamangaraja No. 234
+RT/RW             : 003/010
+Kelurahan         : Sitirejo
+Kecamatan         : Medan Amplas
+Kota/Kabupaten    : Kota Medan
+Provinsi          : Sumatera Utara
+Agama             : Islam
+Status Perkawinan : Belum Kawin
+Pekerjaan         : Guru
+Kewarganegaraan   : WNI
+Berlaku Hingga    : 25-01-2053
+
+Data ke-9
+----------------------------------------
+NIK               : 3524265211950009
+Nama              : Putri Ayu Wulandari
+Tempat Lahir      : Jombang
+Tanggal Lahir     : 21/11/1995
+Jenis Kelamin     : Perempuan
+Gol. Darah        : B
+Alamat            : Jl. Pesantren No. 5A, Ds. Cukir
+RT/RW             : 001/001
+Kelurahan         : Cukir
+Kecamatan         : Diwek
+Kota/Kabupaten    : Kabupaten Jombang
+Provinsi          : Jawa Timur
+Agama             : Islam
+Status Perkawinan : Belum Kawin
+Pekerjaan         : Perawat
+Kewarganegaraan   : WNI
+Berlaku Hingga    : 21-11-2045
+
+Data ke-10
+----------------------------------------
+NIK               : 6471050404830010
+Nama              : Michael Lee
+Tempat Lahir      : Samarinda
+Tanggal Lahir     : 04/04/1983
+Jenis Kelamin     : Laki-laki
+Gol. Darah        : AB
+Alamat            : Jl. Untung Suropati Blok C-10
+RT/RW             : 007/002
+Kelurahan         : Sungai Pinang Luar
+Kecamatan         : Sungai Pinang
+Kota/Kabupaten    : Kota Samarinda
+Provinsi          : Kalimantan Timur
+Agama             : Konghucu
+Status Perkawinan : Kawin
+Pekerjaan         : Manager
+Kewarganegaraan   : WNI
+Berlaku Hingga    : 04-04-2043
+
+
+Data ke-11
+----------------------------------------
+NIK               : 3175091807950011
+Nama              : Rizki Maulana
+Tempat Lahir      : Jakarta
+Tanggal Lahir     : 18/07/1995
+Jenis Kelamin     : Laki-laki
+Gol. Darah        : B
+Alamat            : Jl. Tebet Barat Dalam IX No. 24
+RT/RW             : 002/005
+Kelurahan         : Tebet Barat
+Kecamatan         : Tebet
+Kota/Kabupaten    : Jakarta Selatan
+Provinsi          : DKI Jakarta
+Agama             : Islam
+Status Perkawinan : Belum Kawin
+Pekerjaan         : Software Developer
+Kewarganegaraan   : WNI
+Berlaku Hingga    : 18-07-2055
+
+Data ke-12
+----------------------------------------
+NIK               : 3276022508930012
+Nama              : Dian Permatasari
+Tempat Lahir      : Cimahi
+Tanggal Lahir     : 25/08/1993
+Jenis Kelamin     : Perempuan
+Gol. Darah        : A
+Alamat            : Jl. Raya Cibabat No. 78
+RT/RW             : 003/004
+Kelurahan         : Cibabat
+Kecamatan         : Cimahi Utara
+Kota/Kabupaten    : Kota Cimahi
+Provinsi          : Jawa Barat
+Agama             : Islam
+Status Perkawinan : Kawin
+Pekerjaan         : Dokter Umum
+Kewarganegaraan   : WNI
+Berlaku Hingga    : 25-08-2053
+
+Data ke-13
+----------------------------------------
+NIK               : 3573051204660013
+Nama              : Bambang Sutrisno
+Tempat Lahir      : Malang
+Tanggal Lahir     : 12/04/1966
+Jenis Kelamin     : Laki-laki
+Gol. Darah        : O
+Alamat            : Jl. Semeru No. 45
+RT/RW             : 001/002
+Kelurahan         : Klojen
+Kecamatan         : Klojen
+Kota/Kabupaten    : Kota Malang
+Provinsi          : Jawa Timur
+Agama             : Islam
+Status Perkawinan : Kawin
+Pekerjaan         : Pensiunan PNS
+Kewarganegaraan   : WNI
+Berlaku Hingga    : SEUMUR HIDUP
+
+Data ke-14
+----------------------------------------
+NIK               : 6471010902000014
+Nama              : Jessica Widjaja
+Tempat Lahir      : Samarinda
+Tanggal Lahir     : 09/02/2000
+Jenis Kelamin     : Perempuan
+Gol. Darah        : AB
+Alamat            : Jl. Mulawarman No. 112
+RT/RW             : 005/003
+Kelurahan         : Pelabuhan
+Kecamatan         : Samarinda Kota
+Kota/Kabupaten    : Kota Samarinda
+Provinsi          : Kalimantan Timur
+Agama             : Kristen Protestan
+Status Perkawinan : Belum Kawin
+Pekerjaan         : Mahasiswi
+Kewarganegaraan   : WNI
+Berlaku Hingga    : 09-02-2060
+
+Data ke-15
+----------------------------------------
+NIK               : 7371131508870015
+Nama              : Andi Rahman
+Tempat Lahir      : Makassar
+Tanggal Lahir     : 15/08/1987
+Jenis Kelamin     : Laki-laki
+Gol. Darah        : B
+Alamat            : Jl. Urip Sumoharjo No. 89
+RT/RW             : 006/008
+Kelurahan         : Maricaya
+Kecamatan         : Makassar
+Kota/Kabupaten    : Kota Makassar
+Provinsi          : Sulawesi Selatan
+Agama             : Islam
+Status Perkawinan : Kawin
+Pekerjaan         : Pengusaha
+Kewarganegaraan   : WNI
+Berlaku Hingga    : 15-08-2047
+
+Data ke-16
+----------------------------------------
+NIK               : 5171020310830016
+Nama              : Komang Suryani
+Tempat Lahir      : Denpasar
+Tanggal Lahir     : 03/10/1983
+Jenis Kelamin     : Perempuan
+Gol. Darah        : A
+Alamat            : Jl. Teuku Umar No. 56
+RT/RW             : 004/007
+Kelurahan         : Dangin Puri
+Kecamatan         : Denpasar Utara
+Kota/Kabupaten    : Kota Denpasar
+Provinsi          : Bali
+Agama             : Hindu
+Status Perkawinan : Kawin
+Pekerjaan         : Pegawai Bank
+Kewarganegaraan   : WNI
+Berlaku Hingga    : 03-10-2043
+
+Data ke-17
+----------------------------------------
+NIK               : 1218121107980017
+Nama              : Joko Susilo
+Tempat Lahir      : Binjai
+Tanggal Lahir     : 11/07/1998
+Jenis Kelamin     : Laki-laki
+Gol. Darah        : O
+Alamat            : Jl. Diponegoro No. 33
+RT/RW             : 002/006
+Kelurahan         : Rambung
+Kecamatan         : Binjai Kota
+Kota/Kabupaten    : Kota Binjai
+Provinsi          : Sumatera Utara
+Agama             : Islam
+Status Perkawinan : Belum Kawin
+Pekerjaan         : Teknisi
+Kewarganegaraan   : WNI
+Berlaku Hingga    : 11-07-2058
+
+Data ke-18
+----------------------------------------
+NIK               : 3674012205910018
+Nama              : David Alexander
+Tempat Lahir      : Serang
+Tanggal Lahir     : 22/05/1991
+Jenis Kelamin     : Laki-laki
+Gol. Darah        : AB
+Alamat            : Jl. Syekh Nawawi No. 15
+RT/RW             : 007/001
+Kelurahan         : Cipocok Jaya
+Kecamatan         : Cipocok Jaya
+Kota/Kabupaten    : Kota Serang
+Provinsi          : Banten
+Agama             : Kristen Protestan
+Status Perkawinan : Kawin
+Pekerjaan         : Konsultan IT
+Kewarganegaraan   : WNI
+Berlaku Hingga    : 22-05-2051
+
+Data ke-19
+----------------------------------------
+NIK               : 3525151704890019
+Nama              : Luh Putu Ayu
+Tempat Lahir      : Banyuwangi
+Tanggal Lahir     : 17/04/1989
+Jenis Kelamin     : Perempuan
+Gol. Darah        : B
+Alamat            : Jl. Gatot Subroto No. 67
+RT/RW             : 003/005
+Kelurahan         : Temenggungan
+Kecamatan         : Banyuwangi
+Kota/Kabupaten    : Kabupaten Banyuwangi
+Provinsi          : Jawa Timur
+Agama             : Hindu
+Status Perkawinan : Kawin
+Pekerjaan         : Apoteker
+Kewarganegaraan   : WNI
+Berlaku Hingga    : 17-04-2049
+
+Data ke-20
+----------------------------------------
+NIK               : 6472032911950020
+Nama              : Fatimah Zahra
+Tempat Lahir      : Balikpapan
+Tanggal Lahir     : 29/11/1995
+Jenis Kelamin     : Perempuan
+Gol. Darah        : A
+Alamat            : Jl. MT. Haryono No. 123
+RT/RW             : 008/004
+Kelurahan         : Klandasan Ilir
+Kecamatan         : Balikpapan Kota
+Kota/Kabupaten    : Kota Balikpapan
+Provinsi          : Kalimantan Timur
+Agama             : Islam
+Status Perkawinan : Belum Kawin
+Pekerjaan         : Akuntan
+Kewarganegaraan   : WNI
+Berlaku Hingga    : 29-11-2055
+
+
+Data ke-21
+----------------------------------------
+NIK               : 3174031502070021
+Nama              : Muhammad Alif Rizki
+Tempat Lahir      : Jakarta
+Tanggal Lahir     : 15/02/2007
+Jenis Kelamin     : Laki-laki
+Gol. Darah        : O
+Alamat            : Jl. Kebon Jeruk Raya No. 45
+RT/RW             : 002/008
+Kelurahan         : Kebon Jeruk
+Kecamatan         : Kebon Jeruk
+Kota/Kabupaten    : Jakarta Barat
+Provinsi          : DKI Jakarta
+Agama             : Islam
+Status Perkawinan : Belum Kawin
+Pekerjaan         : Pelajar
+Kewarganegaraan   : WNI
+Berlaku Hingga    : 15-02-2067
+
+Data ke-22
+----------------------------------------
+NIK               : 3275012808060022
+Nama              : Salsabila Putri Anggraini
+Tempat Lahir      : Bandung
+Tanggal Lahir     : 28/08/2006
+Jenis Kelamin     : Perempuan
+Gol. Darah        : A
+Alamat            : Jl. Gegerkalong Hilir No. 12
+RT/RW             : 003/005
+Kelurahan         : Gegerkalong
+Kecamatan         : Sukasari
+Kota/Kabupaten    : Kota Bandung
+Provinsi          : Jawa Barat
+Agama             : Islam
+Status Perkawinan : Belum Kawin
+Pekerjaan         : Pelajar
+Kewarganegaraan   : WNI
+Berlaku Hingga    : 28-08-2066
+
+Data ke-23
+----------------------------------------
+NIK               : 3515180310080023
+Nama              : Kevin Alexander Tan
+Tempat Lahir      : Surabaya
+Tanggal Lahir     : 03/10/2008
+Jenis Kelamin     : Laki-laki
+Gol. Darah        : B
+Alamat            : Jl. Raya Kupang Indah No. 88
+RT/RW             : 004/007
+Kelurahan         : Kupang Krajan
+Kecamatan         : Sawahan
+Kota/Kabupaten    : Kota Surabaya
+Provinsi          : Jawa Timur
+Agama             : Kristen Protestan
+Status Perkawinan : Belum Kawin
+Pekerjaan         : Pelajar
+Kewarganegaraan   : WNI
+Berlaku Hingga    : 03-10-2068
+
+Data ke-24
+----------------------------------------
+NIK               : 7371131205090024
+Nama              : Aisyah Nur Fadhilah
+Tempat Lahir      : Makassar
+Tanggal Lahir     : 12/05/2009
+Jenis Kelamin     : Perempuan
+Gol. Darah        : AB
+Alamat            : Jl. Perintis Kemerdekaan Km. 9
+RT/RW             : 001/003
+Kelurahan         : Tamalanrea
+Kecamatan         : Tamalanrea
+Kota/Kabupaten    : Kota Makassar
+Provinsi          : Sulawesi Selatan
+Agama             : Islam
+Status Perkawinan : Belum Kawin
+Pekerjaan         : Pelajar
+Kewarganegaraan   : WNI
+Berlaku Hingga    : 12-05-2069
+
+Data ke-25
+----------------------------------------
+NIK               : 6472042510070025
+Nama              : Made Dharma Putra
+Tempat Lahir      : Balikpapan
+Tanggal Lahir     : 25/10/2007
+Jenis Kelamin     : Laki-laki
+Gol. Darah        : O
+Alamat            : Jl. Brigjen Sutoyo No. 56
+RT/RW             : 005/002
+Kelurahan         : Damai
+Kecamatan         : Balikpapan Kota
+Kota/Kabupaten    : Kota Balikpapan
+Provinsi          : Kalimantan Timur
+Agama             : Hindu
+Status Perkawinan : Belum Kawin
+Pekerjaan         : Pelajar
+Kewarganegaraan   : WNI
+Berlaku Hingga    : 25-10-2067
+
+Data ke-26
+----------------------------------------
+NIK               : 3671011706080026
+Nama              : Rara Kirana Dewi
+Tempat Lahir      : Tangerang
+Tanggal Lahir     : 17/06/2008
+Jenis Kelamin     : Perempuan
+Gol. Darah        : A
+Alamat            : Jl. Benteng Betawi No. 33
+RT/RW             : 006/004
+Kelurahan         : Poris Plawad
+Kecamatan         : Cipondoh
+Kota/Kabupaten    : Kota Tangerang
+Provinsi          : Banten
+Agama             : Islam
+Status Perkawinan : Belum Kawin
+Pekerjaan         : Pelajar
+Kewarganegaraan   : WNI
+Berlaku Hingga    : 17-06-2068
+
+Data ke-27
+----------------------------------------
+NIK               : 5171010903060027
+Nama              : Komang Indah Permatasari
+Tempat Lahir      : Denpasar
+Tanggal Lahir     : 09/03/2006
+Jenis Kelamin     : Perempuan
+Gol. Darah        : B
+Alamat            : Jl. Hayam Wuruk No. 77
+RT/RW             : 002/006
+Kelurahan         : Sumerta
+Kecamatan         : Denpasar Timur
+Kota/Kabupaten    : Kota Denpasar
+Provinsi          : Bali
+Agama             : Hindu
+Status Perkawinan : Belum Kawin
+Pekerjaan         : Pelajar
+Kewarganegaraan   : WNI
+Berlaku Hingga    : 09-03-2066
+
+Data ke-28
+----------------------------------------
+NIK               : 1218091204090028
+Nama              : Rafi Ardiansyah
+Tempat Lahir      : Medan
+Tanggal Lahir     : 12/04/2009
+Jenis Kelamin     : Laki-laki
+Gol. Darah        : O
+Alamat            : Jl. SM. Raja No. 129
+RT/RW             : 003/007
+Kelurahan         : Sei Sikambing
+Kecamatan         : Medan Sunggal
+Kota/Kabupaten    : Kota Medan
+Provinsi          : Sumatera Utara
+Agama             : Islam
+Status Perkawinan : Belum Kawin
+Pekerjaan         : Pelajar
+Kewarganegaraan   : WNI
+Berlaku Hingga    : 12-04-2069
+
+Data ke-29
+----------------------------------------
+NIK               : 3524262205070029
+Nama              : Dimas Aditya Pratama
+Tempat Lahir      : Jombang
+Tanggal Lahir     : 22/05/2007
+Jenis Kelamin     : Laki-laki
+Gol. Darah        : A
+Alamat            : Jl. Dr. Soetomo No. 41
+RT/RW             : 004/003
+Kelurahan         : Kaliwaru
+Kecamatan         : Jombang
+Kota/Kabupaten    : Kabupaten Jombang
+Provinsi          : Jawa Timur
+Agama             : Islam
+Status Perkawinan : Belum Kawin
+Pekerjaan         : Pelajar
+Kewarganegaraan   : WNI
+Berlaku Hingga    : 22-05-2067
+
+Data ke-30
+----------------------------------------
+NIK               : 6471053008060030
+Nama              : Anastasia Melati Wijaya
+Tempat Lahir      : Samarinda
+Tanggal Lahir     : 30/08/2006
+Jenis Kelamin     : Perempuan
+Gol. Darah        : B
+Alamat            : Jl. Pangeran Hidayatullah No. 92
+RT/RW             : 001/005
+Kelurahan         : Loa Bakung
+Kecamatan         : Sungai Kunjang
+Kota/Kabupaten    : Kota Samarinda
+Provinsi          : Kalimantan Timur
+Agama             : Katolik
+Status Perkawinan : Belum Kawin
+Pekerjaan         : Pelajar
+Kewarganegaraan   : WNI
+Berlaku Hingga    : 30-08-2066
+
+
+Total data: 30
+================================================================================
