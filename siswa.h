@@ -347,7 +347,7 @@ void SiswaMenu::lihatAbsensi() {
         
         // Bandingkan
         if (nikStr == nikAsli) {
-            cout << tanggal << "\t" << status << "\n";
+            cout << tanggal << "\t\t" << status << "\n";
             ada = true;
         }
     }
