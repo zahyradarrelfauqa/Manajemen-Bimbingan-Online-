@@ -4,7 +4,8 @@
 #include <iostream>
 #include <fstream>
 #include <string>
-#include <ctime>  // TAMBAHKAN INI untuk fungsi time()
+#include <ctime>  
+#include <iomanip>
 using namespace std;
 
 // ============================
@@ -449,7 +450,11 @@ void KelasManager::lihatKelasSaya(long long nik, const string& role) {
 }
 
 void KelasManager::lihatSemuaPendaftaran() {
-    cout << "\n========== SEMUA PENDAFTARAN KELAS ==========\n";
+    cout << endl;
+    cout << "[" << string(110, '=') << "]" << endl;
+    cout << left << setw(55) << " " << "SEMUA PENDAFTARAN KELAS" << setw(55) << " " << endl;
+    cout << "[" << string(110, '=') << "]" << endl;
+    cout << endl;
     
     if (!headPendaftaran) {
         cout << "Belum ada pendaftaran.\n";
@@ -459,22 +464,36 @@ void KelasManager::lihatSemuaPendaftaran() {
     KelasNode* cur = headPendaftaran;
     int count = 1;
     
-    cout << "No.\tID\t\t\tNIK\t\tNama\t\tStatus\t\tTanggal\n";
-    cout << "====================================================================\n";
+   cout << left
+         << setw(5) << "No."
+         << setw(30) << "ID Pendaftaran"
+         << setw(20) << "NIK"
+         << setw(25) << "Nama"
+         << setw(15) << "Status"
+         << setw(15) << "Tanggal"
+         << endl;
+    
+    cout << string(110, '-') << endl;
     
     while (cur) {
-        cout << count++ << "\t"
-             << cur->idPendaftaran << "\t"
-             << cur->nik << "\t"
-             << cur->nama << "\t\t"
-             << cur->status << "\t\t"
-             << cur->tanggalDaftar << endl;
+        cout << left << setw(5) << count++
+             << setw(30) << cur->idPendaftaran
+             << setw(20) << cur->nik 
+             << setw(25) << cur->nama 
+             << setw(15) << cur->status
+             << setw(15) << cur->tanggalDaftar << endl;
+             cout << string(110, '-') << endl;
         cur = cur->next;
+        
     }
 }
 
 void KelasManager::lihatKelasAktif() {
-    cout << "\n========== KELAS AKTIF ==========\n";
+    cout << endl;
+    cout << "[" << string(100, '=') << "]" << endl;
+    cout << left << setw(50) << " " << "KELAS AKTIF" << setw(50) << " " << endl;
+    cout << "[" << string(100, '=') << "]" << endl;
+    cout << endl;
     
     if (!headKelasAktif) {
         cout << "Belum ada kelas aktif.\n";
@@ -484,8 +503,16 @@ void KelasManager::lihatKelasAktif() {
     DaftarKelasNode* cur = headKelasAktif;
     int count = 1;
     
-    cout << "No.\tID Kelas\t\tKelas\t\tMapel\t\tPengajar\tKapasitas\n";
-    cout << "====================================================================\n";
+    cout << left
+         << setw(5) << "No."
+         << setw(12) << "ID Kelas"
+         << setw(15) << "Kelas"
+         << setw(25) << "Mata Pelajaran"
+         << setw(25) << "Pengajar"
+         << setw(15) << "Kapasitas"
+         << endl;
+    
+    cout << string(97, '-') << endl;
     
     while (cur) {
         // Cari nama pengajar dari NIK
@@ -507,13 +534,15 @@ void KelasManager::lihatKelasAktif() {
         }
         file.close();
         
-        cout << count++ << "\t"
-             << cur->idKelas << "\t"
-             << cur->kelas << "\t\t"
-             << cur->mapel << "\t\t"
-             << namaPengajar << "\t\t"
-             << cur->terisi << "/" << cur->kapasitas << endl;
+        cout << setw(5) << count++ << "\t"
+             << setw(12) << cur->idKelas << "\t"
+             << setw(15) << cur->kelas << "\t\t"
+             << setw(25) << cur->mapel << "\t\t"
+             << setw(25) << namaPengajar << "\t\t"
+             << setw(15) << cur->terisi << "/" << cur->kapasitas << endl;
         cur = cur->next;
+        cout << string(97, '-') << endl;
+
     }
 }
 
