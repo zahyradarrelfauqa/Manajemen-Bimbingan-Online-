@@ -401,11 +401,9 @@ bool Admin::backupFile(const string& sumber, const string& tujuan)
 void Admin::laporanDataSiswa() 
 {
     cout << endl;
-    cout << "[----------------------------]";
-    cout << endl;
-    cout << "[---  LAPORAN DATA SISWA  ---]";
-    cout << endl;
-    cout << "[----------------------------]";
+    cout << "[" << string(70, '-') << "]" << endl;
+    cout << left << setw(35) << " " << "LAPORAN DATA SISWA" << setw(35) << " " << endl;
+    cout << "[" << string(70, '-') << "]" << endl;
     cout << endl;
 
     if (!head) 
@@ -416,14 +414,20 @@ void Admin::laporanDataSiswa()
     }
 
     NodeSiswa* cur = head;
-    cout << "NIK\t\t\tNama\t\tKelas\t";
+    cout << setw(20) << "NIK"
+		 << setw(25) << "Nama"
+		 << setw(15) << "Kelas"
+		 << endl;
+	cout << string(70, '-') << endl;
     cout << endl;
+    
     while (cur) 
     {
-        cout << cur->nik << "\t\t\t"
-             << cur->nama << "\t\t"
-             << cur->kelas;
-        cout << endl;
+        cout << left << setw(20) << cur->nik
+             << setw(25) << cur->nama
+             << setw(15) << cur->kelas;
+    	cout << string(70, '-') << endl;
+
         cur = cur->next;
     }
 }
@@ -431,11 +435,9 @@ void Admin::laporanDataSiswa()
 void Admin::laporanDataPengajar() 
 {
     cout << endl;
-    cout << "[-----------------------------]";
-    cout << endl;
-    cout << "[--- LAPORAN DATA PENGAJAR ---]";
-    cout << endl;
-    cout << "[-----------------------------]";
+    cout << "[" << string(80, '-') << "]" << endl;
+    cout << left << setw(40) << " " << "LAPORAN DATA PENGAJAR" << setw(40) << " " << endl;
+    cout << "[" << string(80, '-') << "]" << endl;
     cout << endl;
 
     if (!headPengajar) 
@@ -446,13 +448,17 @@ void Admin::laporanDataPengajar()
     }
 
     NodePengajar* cur = headPengajar;
-    cout << "NIK\t\t\tNama\t\tMapel";
-    cout << endl;
+    cout << left
+         << setw(20) << "NIK"
+         << setw(25) << "Nama"
+         << setw(30) << "Mata Pelajaran"
+         << endl;
     while (cur) 
     {
-        cout << cur->nik << "\t\t\t"
-             << cur->nama << "\t\t"
-             << cur->mataPelajaran;
+        cout << left << setw(20) << cur->nik 
+             << setw(25) << cur->nama
+             << setw(30) << cur->mataPelajaran;
+	    cout << "[" << string(80, '-') << "]" << endl;
         cout << endl;
         cur = cur->next;
     }
@@ -461,11 +467,9 @@ void Admin::laporanDataPengajar()
 void Admin::laporanDataNilai() 
 {
     cout << endl;
-    cout << "[-----------------------------]";
-    cout << endl;
-    cout << "[---  LAPORAN NILAI SISWA  ---]";
-    cout << endl;
-    cout << "[------------=----------------]";
+    cout << "[" << string(80, '-') << "]" << endl;
+    cout << left << setw(40) << " " << "LAPORAN NILAI SISWA" << setw(40) << " " << endl;
+    cout << "[" << string(80, '-') << "]" << endl;
     cout << endl;
 
     if (!headNilai) 
@@ -477,15 +481,24 @@ void Admin::laporanDataNilai()
 
     NilaiNode* cur = headNilai;
 
-    cout << "NIK\t\t\tMapel\t\tNilai\tKategori";
-    cout << endl;
+    cout << left
+         << setw(20) << "NIK"
+         << setw(25) << "Mata Pelajaran"
+         << setw(10) << "Nilai"
+         << setw(15) << "Kategori"
+         << endl;
+    
+    cout << string(70, '-') << endl;
+
     while (cur) 
     {
-        cout << cur->nik << "\t\t\t"
-             << cur->mapel << "\t\t"
-             << cur->nilai << "\t"
-             << cur->mapel;
+        cout << left << setw(20) << cur->nik
+             << setw(25) << cur->mapel  
+             << setw(10) << cur->nilai 
+             << setw(15) << cur->mapel;
         cout << endl;
+		cout << string(70, '-') << endl;
+
         cur = cur->next;
     }
 }
@@ -493,11 +506,9 @@ void Admin::laporanDataNilai()
 void Admin::laporanDataKehadiran() 
 {
     cout << endl;
-    cout << "[-------------------------------]";
-    cout << endl;
-    cout << "[--- LAPORAN KEHADIRAN SISWA ---]";
-    cout << endl;
-    cout << "[-------------------------------]";
+    cout << "[" << string(70, '-') << "]" << endl;
+    cout << left << setw(35) << " " << "LAPORAN KEHADIRAN SISWA" << setw(35) << " " << endl;
+    cout << "[" << string(70, '-') << "]" << endl;
     cout << endl;
 
     if (!headAbsensi) 
@@ -509,14 +520,21 @@ void Admin::laporanDataKehadiran()
 
     AbsensiNode* cur = headAbsensi;
 
-    cout << "NIK\t\t\tTanggal\t\tStatus";
-    cout << endl;
+    cout << left
+         << setw(20) << "NIK"
+         << setw(15) << "Tanggal"
+         << setw(10) << "Status"
+         << endl;
+    
+    cout << string(45, '-') << endl;
+    
     while (cur) 
     {
-        cout << cur->nik << "\t\t\t"
-             << cur->tanggal << "\t\t"
-             << cur->status;
+        cout << left << setw(20) << cur->nik
+             << setw(15) << cur->tanggal 
+             << setw(10) << cur->status;
         cout << endl;
+        cout << string(45, '-') << endl;
         cur = cur->next;
     }
 }
@@ -915,12 +933,9 @@ void Admin::tambahPembayaran()
 void Admin::lihatDaftarPembayaran() 
 {
     cout << endl;
-    cout << "[-------------------------]";
-    cout << endl;
-    cout << "[--- DAFTAR PEMBAYARAN ---]";
-    cout << endl;
-    cout << "[-------------------------]";
-    cout << endl;
+    cout << "[" << string(90, '-') << "]" << endl;
+    cout << "[" << setw(45) << "DAFTAR PEMBAYARAN" << setw(45) << "]" << endl;
+    cout << "[" << string(90, '-') << "]" << endl;
 
     if (!headKeuangan) 
     {
@@ -931,20 +946,20 @@ void Admin::lihatDaftarPembayaran()
 
     cout << left 
 	     << setw(8) << "ID" 
-	     << setw(15) << "NIK" 
+	     << setw(20) << "NIK" 
 	     << setw(20) << "Jenis" 
 	     << setw(15) << "Jumlah" 
 	     << setw(15) << "Tanggal" 
 	     << setw(12) << "Status" 
 	     << endl;
-	cout << string(85, '-') << endl;
+	cout << string(90, '-') << endl;
 
     KeuanganNode* cur = headKeuangan;
     while (cur) 
     {
         cout << left
          << setw(8) << cur->idTransaksi
-         << setw(15) << cur->nik
+         << setw(20) << cur->nik
          << setw(20) << cur->jenis
          << setw(15) << cur->jumlah
          << setw(15) << cur->tanggal
@@ -1254,12 +1269,16 @@ void Admin::inputAbsensi()
 
 void Admin::lihatAbsensi() 
 {
+	string title = "DAFTAR ABSENSI";
     cout << endl;
-    cout << "[------------------------------]";
-    cout << endl;
-    cout << "[---     DAFTAR ABSENSI     ---]";
-    cout << endl;
-    cout << "[------------------------------]";
+    cout << "[" << string(60 - 2, '-') << "]" << endl;
+
+    cout << "["
+         << setw((60 - 2 + title.length()) / 2) << title
+         << setw((60 - 2 - title.length()) / 2) << ""
+         << "]" << endl;
+
+    cout << "[" << string(60 - 2, '-') << "]" << endl;
     cout << endl;
 
     if (!headAbsensi) 
@@ -1291,12 +1310,10 @@ void Admin::lihatAbsensi()
 void Admin::laporanKehadiranBulanan() 
 {
     cout << endl;
-    cout << "[---------------------------------]";
-    cout << endl;
-    cout << "[--- LAPORAN KEHADIRAN BULANAN ---]";
-    cout << endl;
-    cout << "[---------------------------------]";
-    cout << endl;
+	cout << "[" << string(70, '-') << "]" << endl;
+	cout << left << setw(35) << " " << "LAPORAN KEHADIRAN SISWA" << setw(35) << " " << endl;
+	cout << "[" << string(70, '-') << "]" << endl;
+	cout << endl;
 
     string bulan;
     string tahun;
@@ -1308,10 +1325,14 @@ void Admin::laporanKehadiranBulanan()
     bool ditemukan = false;
 
     AbsensiNode* cur = headAbsensi;
-    cout << "\nNIS\tTanggal\t\tStatus";
-    cout << endl;
-
-    while (cur) 
+    cout << left
+     << setw(20) << "NIK"
+     << setw(15) << "Tanggal"
+     << setw(10) << "Status"
+     << endl;
+	cout << string(45, '-') << endl;
+    
+	while (cur) 
     {
         // tanggal format YYYY-MM-DD: ambil MM
         if (cur->tanggal.size() >= 7) {
@@ -1320,9 +1341,13 @@ void Admin::laporanKehadiranBulanan()
 
             if (bulanData == bulan && tahunData == tahun) 
             {
-                cout << cur->nik << "\t"
-                     << cur->tanggal << "\t"
-                     << cur->status << "\n";
+                cout << left
+			         << setw(20) << cur->nik
+			         << setw(15) << cur->tanggal
+			         << setw(10) << cur->status
+			         << endl;
+			    cout << string(45, '-') << endl;
+
                 ditemukan = true;
             }
         }
@@ -1604,13 +1629,15 @@ void Admin::tambahNilai()
 
 void Admin::lihatSemuaNilai() 
 {
-    cout << endl;
-    cout << "[---------------------------]";
-    cout << endl;
-    cout << "[--- DAFTAR SSEMUA NILAI ---]";
-    cout << endl;
-    cout << "[---------------------------]";
-    cout << endl;
+    string title = "DAFTAR SEMUA NILAI";
+
+	cout << endl;
+	cout << "[" << string(75 - 2, '-') << "]" << endl;
+	cout << "["
+     	 << setw((75 - 2 + title.length()) / 2) << title
+     	 << setw((75 - 2 - title.length()) / 2) << ""
+     	 << "]" << endl;
+	cout << "[" << string(75 - 2, '-') << "]" << endl;
 
     if (!headNilai) 
     {
@@ -1619,19 +1646,19 @@ void Admin::lihatSemuaNilai()
         return;
     }
 
-    cout << left 
-	     << setw(15) << "NIK Siswa" 
-	     << setw(25) << "Mata Pelajaran" 
-	     << setw(10) << "Nilai" 
-	     << setw(15) << "Tanggal" 
-	     << endl;
-	cout << string(65, '-') << endl; // Garis pemisah
+    cout << left
+     << setw(20) << "NIK Siswa"
+     << setw(25) << "Mata Pelajaran"
+     << setw(10) << "Nilai"
+     << setw(15) << "Tanggal"
+     << endl;
+	cout << string(75, '-') << endl;
 
     NilaiNode* cur = headNilai;
     while (cur) 
     {
         cout << left
-	         << setw(15) << cur->nik
+	         << setw(20) << cur->nik
 	         << setw(25) << cur->mapel
 	         << setw(10) << cur->nilai
 	         << setw(15) << cur->tanggal;
@@ -1915,12 +1942,13 @@ void Admin::tambahJadwal()
 
 void Admin::lihatSemuaJadwal() 
 {
+	string title = "Daftar Semua Jadwal";
     cout << endl;
-    cout << "[--------------------------------]";
+	cout << string(85, '-') << endl;
     cout << endl;
-    cout << "[---    Daftar Semua Jadwal    --]";
+    cout << setw((85 + title.length()) / 2) << title << endl;
     cout << endl;
-    cout << "[--------------------------------]";
+	cout << string(85, '-') << endl;
     cout << endl;
 
     if (!headJadwal) 
@@ -1931,26 +1959,26 @@ void Admin::lihatSemuaJadwal()
     }
 
     JadwalNode* j = headJadwal;
-    cout << left 
-	     << setw(6) << "ID" 
-	     << setw(10) << "Hari" 
-	     << setw(15) << "Jam" 
-	     << setw(20) << "Mata Pelajaran" 
-	     << setw(15) << "Pengajar" 
-	     << setw(8) << "Kelas" 
-	     << endl;
-	cout << string(74, '-') << endl;
-    cout << "--------------------------------------------------------------------";
+    cout << left
+     << setw(8)  << "ID"
+     << setw(12) << "Hari"
+     << setw(15) << "Jam"
+     << setw(22) << "Mata Pelajaran"
+     << setw(18) << "Pengajar"
+     << setw(10) << "Kelas"
+     << endl;
+
+	cout << string(85, '-') << endl;
     cout << endl;
     while (j) 
     {
         cout << left
-         << setw(6) << j->idJadwal
-         << setw(10) << j->hari  
+         << setw(8) << j->idJadwal
+         << setw(12) << j->hari  
          << setw(15) << j->jam
-         << setw(20) << j->mapel
-         << setw(15) << j->pengajarNIK
-         << setw(8) << j->kelas;
+         << setw(22) << j->mapel
+         << setw(18) << j->pengajarNIK
+         << setw(10) << j->kelas;
     cout << endl;
         j = j->next;
     }
@@ -2778,11 +2806,11 @@ void Admin::menuAdmin()
     do
     {
         cout << endl;
-        cout << "[----------------------------]";
+        cout << "[----------------------------------]";
         cout << endl;
-        cout << "[---      MENU ADMIN      ---]";
+        cout << "[---         MENU ADMIN         ---]";
         cout << endl;
-        cout << "[----------------------------]";
+        cout << "[----------------------------------]";
         cout << endl;
 
         cout << "1. Manajemen Data Siswa";
@@ -2804,7 +2832,7 @@ void Admin::menuAdmin()
         cout << "9. Manajemen Kelas\n";  
         cout << "10. Logout";    
         cout << endl;
-        cout << "[----------------------------]";
+        cout << "[----------------------------------]";
         cout << endl;
         cout << "Pilihan: ";
         cin >> pilih;
