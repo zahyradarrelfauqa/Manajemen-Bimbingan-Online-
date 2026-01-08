@@ -34,7 +34,9 @@ int main() {
         cout << endl;
         cout << "2. Login";
         cout << endl;
-        cout << "3. Exit";
+        cout << "3. Ganti Password";
+        cout << endl;
+        cout << "4. Exit";
         cout << endl;
         cout << "========================";
     	cout << endl;
@@ -47,6 +49,7 @@ int main() {
                 break;
 
             case 2: {
+				break;
                 string uname;
                 Role r = akun.login(uname);
 
@@ -78,8 +81,16 @@ int main() {
                 }
                 break;
             }
-
-            case 3:
+            
+			case 3: {
+                string username;
+		        cout << "Masukkan NIK yang akan diganti passwordnya: ";
+		        cin >> username;
+		        akun.gantiPassword(username);
+                break;
+            }
+                
+            case 4:
                 cout << "\nTerima kasih telah mengunjungi BimOn!\n";
                 break;
 
